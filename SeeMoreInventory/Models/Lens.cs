@@ -11,10 +11,10 @@ namespace SeeMoreInventory.Models
         [Display(Name = "Product Label")]
         public string ProductLabel { get; set; }
 
-        [DisplayFormat(DataFormatString = "#0.00")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "#0.00")]
         public decimal Sphere { get; set; }
 
-        [DisplayFormat(DataFormatString = "#0.00")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "#0.00")]
         [Range(0.00, -8.00)]
         public decimal Cylinder { get; set; }
 

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 
 namespace SeeMoreInventory.Models
@@ -12,6 +11,7 @@ namespace SeeMoreInventory.Models
         }
 
         public DbSet<Lens> Lenses { get; set; }
+        public DbSet<LensHistory> LensHistory { get; set; }
 
     }
 }
