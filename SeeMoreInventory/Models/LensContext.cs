@@ -7,11 +7,15 @@ namespace SeeMoreInventory.Models
     {
         public LensContext(DbContextOptions<LensContext> options) : base(options)
         {
-
+            
         }
 
         public DbSet<Lens> Lenses { get; set; }
         public DbSet<LensHistory> LensHistory { get; set; }
 
+        //public bool UniqueProduct(string productLabel)
+        //{
+        //    if (Lenses.ContainsAsync<Lens>())
+        //}
     }
 }

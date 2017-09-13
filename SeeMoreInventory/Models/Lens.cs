@@ -1,5 +1,6 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SeeMoreInventory.Models
 {
@@ -7,15 +8,17 @@ namespace SeeMoreInventory.Models
     {
         [Key]
         [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [StringLength(30, ErrorMessage = "Product Labels cannot be longer than 30 characters")]
         [Display(Name = "Product Label")]
+        [Remote(action: "UniqueProduct", controller: "CreateModel")]
         public string ProductLabel { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "#0.00")]
+        [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]
         public decimal Sphere { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "#0.00")]
-        [Range(0.00, -8.00)]
+        [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]
+        [Range(-8.00, 0.00)]
         public decimal Cylinder { get; set; }
 
         public int? Axis { get; set; }
@@ -28,6 +31,6 @@ namespace SeeMoreInventory.Models
 
         public int? RemainingCount { get; set; }
 
-        public int LowInventoryWarning { get; set; }
+        public int? LowInventoryWarning { get; set; }
     }
 }
