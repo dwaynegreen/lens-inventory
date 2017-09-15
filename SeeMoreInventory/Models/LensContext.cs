@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace SeeMoreInventory.Models
@@ -13,9 +14,8 @@ namespace SeeMoreInventory.Models
         public DbSet<Lens> Lenses { get; set; }
         public DbSet<LensHistory> LensHistory { get; set; }
 
-        //public bool UniqueProduct(string productLabel)
-        //{
-        //    if (Lenses.ContainsAsync<Lens>())
-        //}
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+        }
     }
 }

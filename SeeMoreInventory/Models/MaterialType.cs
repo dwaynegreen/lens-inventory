@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SeeMoreInventory.Models
 {
     public class MaterialType
     {
-        public int Id { get; set; }
+        [Key]
+        [Required]
+        public int MaterialId { get; set; }
         public string Name { get; set; }
     }
 }

@@ -11,8 +11,8 @@ using System;
 namespace SeeMoreInventory.Migrations
 {
     [DbContext(typeof(LensContext))]
-    [Migration("20170913235333_UpdatingProductLabel")]
-    partial class UpdatingProductLabel
+    [Migration("20170915230914_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,7 +34,7 @@ namespace SeeMoreInventory.Migrations
 
                     b.Property<int?>("LowInventoryWarning");
 
-                    b.Property<int?>("MaterialId");
+                    b.Property<int?>("MaterialId1");
 
                     b.Property<int?>("RemainingCount");
 
@@ -44,16 +44,15 @@ namespace SeeMoreInventory.Migrations
 
                     b.HasKey("ProductLabel");
 
-                    b.HasIndex("MaterialId");
+                    b.HasIndex("MaterialId1");
 
                     b.ToTable("Lenses");
                 });
 
             modelBuilder.Entity("SeeMoreInventory.Models.LensHistory", b =>
                 {
-                    b.Property<string>("ProductLabel")
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(30);
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<bool>("AntiReflectiveCoating");
 
@@ -63,7 +62,11 @@ namespace SeeMoreInventory.Migrations
 
                     b.Property<DateTime>("InsertDate");
 
-                    b.Property<int?>("MaterialId");
+                    b.Property<int?>("MaterialId1");
+
+                    b.Property<string>("ProductLabel")
+                        .IsRequired()
+                        .HasMaxLength(30);
 
                     b.Property<int>("Quantity");
 
@@ -73,37 +76,37 @@ namespace SeeMoreInventory.Migrations
 
                     b.Property<bool>("Transitions");
 
-                    b.HasKey("ProductLabel");
+                    b.HasKey("Id");
 
-                    b.HasIndex("MaterialId");
+                    b.HasIndex("MaterialId1");
 
                     b.ToTable("LensHistory");
                 });
 
             modelBuilder.Entity("SeeMoreInventory.Models.MaterialType", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MaterialId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name");
 
-                    b.HasKey("Id");
+                    b.HasKey("MaterialId");
 
                     b.ToTable("MaterialType");
                 });
 
             modelBuilder.Entity("SeeMoreInventory.Models.Lens", b =>
                 {
-                    b.HasOne("SeeMoreInventory.Models.MaterialType", "Material")
+                    b.HasOne("SeeMoreInventory.Models.MaterialType", "MaterialId")
                         .WithMany()
-                        .HasForeignKey("MaterialId");
+                        .HasForeignKey("MaterialId1");
                 });
 
             modelBuilder.Entity("SeeMoreInventory.Models.LensHistory", b =>
                 {
-                    b.HasOne("SeeMoreInventory.Models.MaterialType", "Material")
+                    b.HasOne("SeeMoreInventory.Models.MaterialType", "MaterialId")
                         .WithMany()
-                        .HasForeignKey("MaterialId");
+                        .HasForeignKey("MaterialId1");
                 });
 #pragma warning restore 612, 618
         }

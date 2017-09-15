@@ -1,5 +1,5 @@
 ﻿@page
-@model IndexModel
+@model SeeMoreInventory.Pages.IndexModel
 @{
     ViewData["Title"] = "Home";
 }
@@ -40,6 +40,7 @@
                 <li class="col-sm-1">Axis</li>
                 <li class="col-sm-1">Material</li>
                 <li class="col-sm-2">Coating</li>
+                <li class="col-sm-1">Transitions</li>
                 <li class="col-sm-1">Quantity</li>
                 <li class="col-sm-2">Remaining Quantity</li>
                 <li class="col-sm-1"></li>
@@ -49,7 +50,7 @@
 
         <div id="scanRows">
             <div>
-                @foreach (var historyRecord in Model.History)
+                @foreach (var historyRecord in Model.LensHistory)
                 {
                     <ul class="ReportRow">
                         <li class="col-sm-1"></li>
@@ -57,10 +58,18 @@
                         <li class="col-sm-1">@historyRecord.Sphere</li>
                         <li class="col-sm-1">@historyRecord.Cylinder</li>
                         <li class="col-sm-1">@historyRecord.Axis</li>
-                        <li class="col-sm-1">@historyRecord.Material</li>
+                        <li class="col-sm-1">@historyRecord.MaterialId</li>
                         @if (historyRecord.AntiReflectiveCoating)
                         {
                             <li class="col-sm-2">Anti-Reflective</li>
+                        }
+                        else
+                        {
+                            <li class="col-sm-2">None</li>
+                        }
+                        @if (historyRecord.Transitions)
+                        {
+                            <li class="col-sm-2">Transitions</li>
                         }
                         else
                         {

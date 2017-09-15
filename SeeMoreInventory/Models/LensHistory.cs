@@ -4,7 +4,8 @@ namespace SeeMoreInventory.Models
 {
     public class LensHistory
     {
-        [Key]
+        public int Id { get; set; }
+
         [Required]
         [StringLength(30, ErrorMessage = "Product Labels cannot be longer than 30 characters")]
         [Display(Name = "Product Label")]
@@ -21,7 +22,7 @@ namespace SeeMoreInventory.Models
 
         public bool AntiReflectiveCoating { get; set; }
 
-        public MaterialType Material { get; set; }
+        public MaterialType MaterialId { get; set; }
 
         public bool Transitions { get; set; }
         
