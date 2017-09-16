@@ -43,7 +43,7 @@ namespace SeeMoreInventory.Migrations
 
                     b.HasKey("ProductLabel");
 
-                    b.HasIndex("MaterialId1");
+                    b.HasIndex("MaterialId");
 
                     b.ToTable("Lenses");
                 });
@@ -77,33 +77,33 @@ namespace SeeMoreInventory.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MaterialId1");
+                    b.HasIndex("MaterialId");
 
                     b.ToTable("LensHistory");
                 });
 
             modelBuilder.Entity("SeeMoreInventory.Models.MaterialType", b =>
                 {
-                    b.Property<int>("MaterialId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name");
 
-                    b.HasKey("MaterialId");
+                    b.HasKey("Id");
 
                     b.ToTable("MaterialType");
                 });
 
             modelBuilder.Entity("SeeMoreInventory.Models.Lens", b =>
                 {
-                    b.HasOne("SeeMoreInventory.Models.MaterialType", "MaterialId")
+                    b.HasOne("SeeMoreInventory.Models.MaterialType", "Material")
                         .WithMany()
                         .HasForeignKey("MaterialId");
                 });
 
             modelBuilder.Entity("SeeMoreInventory.Models.LensHistory", b =>
                 {
-                    b.HasOne("SeeMoreInventory.Models.MaterialType", "MaterialId")
+                    b.HasOne("SeeMoreInventory.Models.MaterialType", "Material")
                         .WithMany()
                         .HasForeignKey("MaterialId");
                 });

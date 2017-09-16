@@ -13,13 +13,13 @@ namespace SeeMoreInventory.Migrations
                 name: "MaterialType",
                 columns: table => new
                 {
-                    MaterialId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MaterialType", x => x.MaterialId);
+                    table.PrimaryKey("PK_MaterialType", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -40,10 +40,10 @@ namespace SeeMoreInventory.Migrations
                 {
                     table.PrimaryKey("PK_Lenses", x => x.ProductLabel);
                     table.ForeignKey(
-                        name: "FK_Lenses_MaterialType_MaterialId1",
+                        name: "FK_Lenses_MaterialType_MaterialId",
                         column: x => x.MaterialId,
                         principalTable: "MaterialType",
-                        principalColumn: "MaterialId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -68,20 +68,20 @@ namespace SeeMoreInventory.Migrations
                 {
                     table.PrimaryKey("PK_LensHistory", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LensHistory_MaterialType_MaterialId1",
+                        name: "FK_LensHistory_MaterialType_MaterialId",
                         column: x => x.MaterialId,
                         principalTable: "MaterialType",
-                        principalColumn: "MaterialId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lenses_MaterialId1",
+                name: "IX_Lenses_MaterialId",
                 table: "Lenses",
                 column: "MaterialId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LensHistory_MaterialId1",
+                name: "IX_LensHistory_MaterialId",
                 table: "LensHistory",
                 column: "MaterialId");
         }

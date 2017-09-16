@@ -22,10 +22,10 @@ namespace SeeMoreInventory.Models
 
         public bool AntiReflectiveCoating { get; set; }
 
-        public MaterialType MaterialId { get; set; }
+        public MaterialType Material { get; set; }
 
         public bool Transitions { get; set; }
-        
+
         public int Quantity { get; set; }
 
         public int? RemainingCount { get; set; }

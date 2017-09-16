@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SeeMoreInventory"
+    "\\SeeMoreInventory",
+    "\\SeeMoreInventory\\Models",
+    "\\SeeMoreInventory\\obj\\Debug",
+    "\\SeeMoreInventory\\obj\\Release"
   ],
   "SelectedNode": "\\SeeMoreInventory.sln",
   "PreviewInSolutionExplorer": false

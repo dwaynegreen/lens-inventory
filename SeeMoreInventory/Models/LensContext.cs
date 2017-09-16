@@ -13,9 +13,5 @@ namespace SeeMoreInventory.Models
 
         public DbSet<Lens> Lenses { get; set; }
         public DbSet<LensHistory> LensHistory { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-        }
     }
 }
