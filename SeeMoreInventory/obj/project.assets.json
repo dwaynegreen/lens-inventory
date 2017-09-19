@@ -13126,11 +13126,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\dgreen\\Source\\Repos\\lens-inventory\\SeeMoreInventory\\SeeMoreInventory.csproj",
+      "projectUniqueName": "C:\\Users\\dgreen\\source\\repos\\lens-inventory\\SeeMoreInventory\\SeeMoreInventory.csproj",
       "projectName": "SeeMoreInventory",
-      "projectPath": "C:\\Users\\dgreen\\Source\\Repos\\lens-inventory\\SeeMoreInventory\\SeeMoreInventory.csproj",
+      "projectPath": "C:\\Users\\dgreen\\source\\repos\\lens-inventory\\SeeMoreInventory\\SeeMoreInventory.csproj",
       "packagesPath": "C:\\Users\\dgreen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dgreen\\Source\\Repos\\lens-inventory\\SeeMoreInventory\\obj\\",
+      "outputPath": "C:\\Users\\dgreen\\source\\repos\\lens-inventory\\SeeMoreInventory\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

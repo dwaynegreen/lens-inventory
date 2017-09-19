@@ -4,85 +4,93 @@
     ViewData["Title"] = "Home";
 }
 
-<div>
-    <br />
-    <br />
-    <div class="scanner-ctrl">
-        <form class="form-horizontal" method="post">
-            <div class="form-group">
-                <div class="row">
-                    <div class="form-group">
-                        <label asp-for="updateInventory.id" class="col-sm-2 control-label"></label>
-                        <input asp-for="updateInventory.id" class="form-control" />
-                    </div>
 
-                    <div class="form-group">
-                        <label asp-for="updateInventory.count" class="col-sm-1 control-label"></label>
-                        <input asp-for="updateInventory.count" class="form-control" value="-1" />
-                    </div>
-                    <div class="col-sm-2">
-                        <button class="btn btn-sq" type="button" id="plus">+</button>
-                        <button class="btn btn-sq" type="button" id="minus">-</button>
-                    </div>
-                    <div class="form-group">
-                        <input class="btn btn-primary" type="submit" id="submit" value="Update" />
-                    </div>
-                </div>
+<br />
+<br />
+<div class="scanner-ctrl">
+    <form class="form-horizontal" method="post">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <label asp-for="updateInventory.id" class="control-label"></label>
             </div>
-        </form>
-        <br />
-        <div class="Report row">
-            <hr />
-            <ul class="ReportHeader">
-                <li class="col-sm-1"></li>
-                <li class="col-sm-1">ProductLabel</li>
-                <li class="col-sm-1">Sphere</li>
-                <li class="col-sm-1">Cylinder</li>
-                <li class="col-sm-1">Axis</li>
-                <li class="col-sm-1">Material</li>
-                <li class="col-sm-2">Coating</li>
-                <li class="col-sm-1">Transitions</li>
-                <li class="col-sm-1">Quantity</li>
-                <li class="col-sm-2">Remaining Quantity</li>
-                <li class="col-sm-1"></li>
-            </ul>
-            <hr />
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <label asp-for="updateInventory.count" class="control-label"></label>
+            </div>
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-4">
+            </div>
         </div>
-
-        <div id="scanRows">
-            <div>
-                @foreach (var historyRecord in Model.LensHistory)
-                {
-                    <ul class="ReportRow">
-                        <li class="col-sm-1"></li>
-                        <li class="col-sm-1">@historyRecord.ProductLabel</li>
-                        <li class="col-sm-1">@historyRecord.Sphere</li>
-                        <li class="col-sm-1">@historyRecord.Cylinder</li>
-                        <li class="col-sm-1">@historyRecord.Axis</li>
-                        <li class="col-sm-1">@historyRecord.Material</li>
-                        @if (historyRecord.AntiReflectiveCoating)
-                        {
-                            <li class="col-sm-2">Anti-Reflective</li>
-                        }
-                        else
-                        {
-                            <li class="col-sm-2">None</li>
-                        }
-                        @if (historyRecord.Transitions)
-                        {
-                            <li class="col-sm-2">Transitions</li>
-                        }
-                        else
-                        {
-                            <li class="col-sm-2">None</li>
-                        }
-                        <li class="col-sm-1">@historyRecord.Quantity</li>
-                        <li class="col-sm-2">@historyRecord.RemainingCount</li>
-                        <li class="col-sm-1"></li>
-                    </ul>
-                    <hr>
-                }
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <input asp-for="updateInventory.id" class="form-control" value="" />
             </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <input asp-for="updateInventory.count" class="form-control QTYText" value="-1" />
+            </div>
+            <div class="col-sm-2">
+                <button class="btn btn-sq" type="button" id="plus">+</button>
+                <button class="btn btn-sq" type="button" id="minus">-</button>
+            </div>
+            <div class="col-sm-4">
+                <input class="btn btn-primary" style="align-self:flex-start" type="submit" id="submit" value="Update" />
+            </div>
+        </div>
+</form>
+</div>
+    <br />
+<div>
+    <div class="Report row">
+        <hr />
+        <ul class="ReportHeader">
+            <li class="col-sm-1">ProductLabel</li>
+            <li class="col-sm-1">Sphere</li>
+            <li class="col-sm-1">Cylinder</li>
+            <li class="col-sm-1">Axis</li>
+            <li class="col-sm-1">Material</li>
+            <li class="col-sm-2">Coating</li>
+            <li class="col-sm-1">Transitions</li>
+            <li class="col-sm-1">Quantity</li>
+            <li class="col-sm-2">Remaining Quantity</li>
+        </ul>
+        <hr />
+    </div>
+
+    <div id="scanRows" class="row">
+        <div>
+            @foreach (var historyRecord in Model.LensHistory)
+            {
+                <ul class="ReportRow">
+                    <li class="col-sm-1">@historyRecord.ProductLabel</li>
+                    <li class="col-sm-1">@historyRecord.Sphere</li>
+                    <li class="col-sm-1">@historyRecord.Cylinder</li>
+                    <li class="col-sm-1">@historyRecord.Axis</li>
+                    <li class="col-sm-1">@historyRecord.Material</li>
+                    @if (historyRecord.AntiReflectiveCoating)
+                    {
+                        <li class="col-sm-2">Anti-Reflective</li>
+                    }
+                    else
+                    {
+                        <li class="col-sm-2">None</li>
+                    }
+                    @if (historyRecord.Transitions)
+                    {
+                        <li class="col-sm-1">Transitions</li>
+                    }
+                    else
+                    {
+                        <li class="col-sm-1">None</li>
+                    }
+                    <li class="col-sm-1">@historyRecord.Quantity</li>
+                    <li class="col-sm-2">@historyRecord.RemainingCount</li>
+                </ul>
+                    <hr>
+            }
         </div>
     </div>
 </div>

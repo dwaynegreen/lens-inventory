@@ -33,19 +33,18 @@
             <div class="row">
                 <ul>
                     <li class="col-sm-2"></li>
-                    <li class="col-sm-2"><h3>Home</h3></li>
-                    <li class="col-sm-1"></li>
-                    <li class="col-sm-2"><h3>Create Product</h3></li>
-                    <li class="col-sm-1"></li>
-                    <li class="col-sm-2"><h3>Inventory</h3></li>
+                    <li class="col-sm-2"><a asp-page="/Index">Home</a></li>
+                    <li class="col-sm-2"><a asp-page="/Create">Create Product</a></li>
+                    <li class="col-sm-2"><a asp-page="/Inventory">Inventory</a></li>
+                    <li class="col-sm-2"><a asp-page="/AdminPages/Index">Admin</a></li>
                 </ul>
             </div>
         </nav>
-        <div class="container body-content">
+        <div class="body-content">
             @RenderBody()
             
             <footer>
-                <p>&copy; 2017 - SeeMoreInventory</p>
+                @*<p>&copy; 2017 - SeeMoreInventory</p>*@
             </footer>
         </div>
 
@@ -72,7 +71,6 @@
 
         @RenderSection("Scripts", required: false)
     </div>
-    @*<script src="~/js/scanList.js"></script>*@
     <script src="~/js/incrementButton.js"></script>
     <script src="~/js/printStickers.js"></script>
     <script src="~/js/addLabel.js"></script>

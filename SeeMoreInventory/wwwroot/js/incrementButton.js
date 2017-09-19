@@ -1,13 +1,13 @@
 ﻿$(document).ready(function () {
-    //var counter = $('#TextBox').val();
+    var counter = $('#updateInventory_count').val();
     $('#plus').click(function () {
-        var counter = $('#QTYtext').val();
+        var counter = $('#updateInventory_count').val();
         counter++;
-        $('#QTYtext').val(counter);
+        $('#updateInventory_count').val(counter);
     });
     $('#minus').click(function () {
-        var counter = $('#QTYtext').val();
+        var counter = $('#updateInventory_count').val();
         counter--;
-        $('#QTYtext').val(counter);
+        $('#updateInventory_count').val(counter);
     });
 });

@@ -88,6 +88,7 @@ hr {
 
 #plus {
     width: 35px;
+    vertical-align: bottom;
 }
 
 #minus {
