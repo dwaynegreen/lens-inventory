@@ -3,10 +3,7 @@
 }
 
 body {
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
+    margin: 0, 0, 0, 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: large;
 }
@@ -29,12 +26,12 @@ ul {
     background-color: #f2f2f2;
 }
 
-    ul.Report {
+.Report {
         background-color: #e0ebeb;
-    }
+}
 
 .searchArea {
-    padding-top: 0px;
+    padding-top: 0;
     padding-left: 3%;
     margin-top: -15px;
 }
@@ -45,28 +42,28 @@ legend {
 }
 
 #headerDivide {
-    margin-top: 0px;
+    margin-top: 0;
     border-color: slategray;
 }
 
 #reportDivide {
     border-color: slategray;
-    margin-bottom: 0px;
-    padding-left: 0px;
+    margin-bottom: 0;
+    padding-left: 0;
 }
 
 .btn-primary {
-    background-color: #1178aa !important;
+    background-color: #1178aa;
 }
 
 
-ul.ReportRow {
+.ReportRow {
     width: 100%;
 }
 
 hr {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
     border: 1px solid #5f6a7a
 }
 
@@ -82,7 +79,7 @@ hr {
     margin-left: 40px;
 }
 
-ul.ReportHeader {
+.ReportHeader {
     background-color: #1178aa;
     font-weight: bold;
     color: white
@@ -126,7 +123,7 @@ label {
 .labelSticker {
     font-weight: bold;
     font-size: 125%;
-    border: 0px;
+    border: 0;
     text-align: center;
     cursor: default;
 }

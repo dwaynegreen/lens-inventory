@@ -3,9 +3,8 @@
     "",
     "\\SeeMoreInventory",
     "\\SeeMoreInventory\\Models",
-    "\\SeeMoreInventory\\obj\\Debug",
-    "\\SeeMoreInventory\\obj\\Release"
+    "\\SeeMoreInventory\\Pages"
   ],
-  "SelectedNode": "\\SeeMoreInventory.sln",
+  "SelectedNode": "\\SeeMoreInventory\\Pages\\Index.cshtml.cs",
   "PreviewInSolutionExplorer": false
 }

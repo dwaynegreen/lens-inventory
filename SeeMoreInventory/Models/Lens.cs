@@ -11,7 +11,6 @@ namespace SeeMoreInventory.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [StringLength(30, ErrorMessage = "Product Labels cannot be longer than 30 characters")]
         [Display(Name = "Product Label")]
-        [Remote(action: "UniqueProduct", controller: "CreateModel")]
         public string ProductLabel { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]

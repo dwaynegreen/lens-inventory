@@ -8,24 +8,25 @@
     <br />
     <br />
     <div class="scanner-ctrl">
-        <form class="form-horizontal">
+        <form class="form-horizontal" method="post">
             <div class="form-group">
                 <div class="row">
-                    <span class="col-sm-1"></span>
-                    <label class="col-sm-2 control-label">Product Label</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" type="text" id="ProductLabelText" name="ProductLabel" onkeypress="return searchKeyPress(event)" />
+                    <div class="form-group">
+                        <label asp-for="updateInventory.id" class="col-sm-2 control-label"></label>
+                        <input asp-for="updateInventory.id" class="form-control" />
                     </div>
 
-                    <label class="col-sm-1 control-label" for="QTYtext">Quantity</label>
-                    <div class="col-sm-1">
-                        <input class="form-control" type="text" id="QTYtext" name="qty" value="-1" onkeypress="return searchKeyPress(event)" />
+                    <div class="form-group">
+                        <label asp-for="updateInventory.count" class="col-sm-1 control-label"></label>
+                        <input asp-for="updateInventory.count" class="form-control" value="-1" />
                     </div>
                     <div class="col-sm-2">
                         <button class="btn btn-sq" type="button" id="plus">+</button>
                         <button class="btn btn-sq" type="button" id="minus">-</button>
                     </div>
-                    <button class="btn btn-primary" type="button" id="submit">Update</button>
+                    <div class="form-group">
+                        <input class="btn btn-primary" type="submit" id="submit" value="Update" />
+                    </div>
                 </div>
             </div>
         </form>

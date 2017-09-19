@@ -15,6 +15,17 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+
+    <script>
+         function searchKeyPress(e) {
+             e = e || window.event;
+             if (e.keyCode == 13) {
+                 document.getElementById("submit").click();
+                 return false;
+             }
+             return true;
+         }
+    </script>
 </head>
 <body>
     <div class="container-fluid">
@@ -32,7 +43,7 @@
         </nav>
         <div class="container body-content">
             @RenderBody()
-            <hr />
+            
             <footer>
                 <p>&copy; 2017 - SeeMoreInventory</p>
             </footer>
@@ -61,5 +72,9 @@
 
         @RenderSection("Scripts", required: false)
     </div>
+    @*<script src="~/js/scanList.js"></script>*@
+    <script src="~/js/incrementButton.js"></script>
+    <script src="~/js/printStickers.js"></script>
+    <script src="~/js/addLabel.js"></script>
 </body>
 </html>
