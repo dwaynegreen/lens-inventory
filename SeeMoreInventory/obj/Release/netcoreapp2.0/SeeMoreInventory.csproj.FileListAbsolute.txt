@@ -1,0 +1,10 @@
+C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\bin\Release\netcoreapp2.0\SeeMoreInventory.deps.json
+C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\bin\Release\netcoreapp2.0\SeeMoreInventory.runtimeconfig.json
+C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\bin\Release\netcoreapp2.0\SeeMoreInventory.runtimeconfig.dev.json
+C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\bin\Release\netcoreapp2.0\SeeMoreInventory.dll
+C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\bin\Release\netcoreapp2.0\SeeMoreInventory.pdb
+C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\obj\Release\netcoreapp2.0\SeeMoreInventory.csproj.CoreCompileInputs.cache
+C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\obj\Release\netcoreapp2.0\SeeMoreInventory.AssemblyInfoInputs.cache
+C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\obj\Release\netcoreapp2.0\SeeMoreInventory.AssemblyInfo.cs
+C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\obj\Release\netcoreapp2.0\SeeMoreInventory.dll
+C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\obj\Release\netcoreapp2.0\SeeMoreInventory.pdb

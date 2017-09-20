@@ -41,5 +41,7 @@ namespace SeeMoreInventory.Pages
 
             await OnGetAsync();
         }
+
+        
     }
 }
