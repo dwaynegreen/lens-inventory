@@ -31,7 +31,7 @@
                     <tbody>
                         @foreach (var lens in Model.Lenses)
                         {
-                            var className = "inventory ";
+                            var className = "";
                             if (lens.LowInventoryWarning >= lens.RemainingCount)
                             {
                                 className += "lowInventory";
