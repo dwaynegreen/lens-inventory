@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SeeMoreInventory"
+    "\\SeeMoreInventory",
+    "\\SeeMoreInventory\\Models",
+    "\\SeeMoreInventory\\Pages"
   ],
   "SelectedNode": "\\SeeMoreInventory.sln",
   "PreviewInSolutionExplorer": false

@@ -11,7 +11,7 @@ using System;
 namespace SeeMoreInventory.Migrations
 {
     [DbContext(typeof(LensContext))]
-    [Migration("20170915230914_Initial")]
+    [Migration("20170916210801_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,7 +34,7 @@ namespace SeeMoreInventory.Migrations
 
                     b.Property<int?>("LowInventoryWarning");
 
-                    b.Property<int?>("MaterialId1");
+                    b.Property<int?>("MaterialId");
 
                     b.Property<int?>("RemainingCount");
 
@@ -44,7 +44,7 @@ namespace SeeMoreInventory.Migrations
 
                     b.HasKey("ProductLabel");
 
-                    b.HasIndex("MaterialId1");
+                    b.HasIndex("MaterialId");
 
                     b.ToTable("Lenses");
                 });
@@ -62,7 +62,7 @@ namespace SeeMoreInventory.Migrations
 
                     b.Property<DateTime>("InsertDate");
 
-                    b.Property<int?>("MaterialId1");
+                    b.Property<int?>("MaterialId");
 
                     b.Property<string>("ProductLabel")
                         .IsRequired()
@@ -78,35 +78,35 @@ namespace SeeMoreInventory.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MaterialId1");
+                    b.HasIndex("MaterialId");
 
                     b.ToTable("LensHistory");
                 });
 
             modelBuilder.Entity("SeeMoreInventory.Models.MaterialType", b =>
                 {
-                    b.Property<int>("MaterialId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name");
 
-                    b.HasKey("MaterialId");
+                    b.HasKey("Id");
 
                     b.ToTable("MaterialType");
                 });
 
             modelBuilder.Entity("SeeMoreInventory.Models.Lens", b =>
                 {
-                    b.HasOne("SeeMoreInventory.Models.MaterialType", "MaterialId")
+                    b.HasOne("SeeMoreInventory.Models.MaterialType", "Material")
                         .WithMany()
-                        .HasForeignKey("MaterialId1");
+                        .HasForeignKey("MaterialId");
                 });
 
             modelBuilder.Entity("SeeMoreInventory.Models.LensHistory", b =>
                 {
-                    b.HasOne("SeeMoreInventory.Models.MaterialType", "MaterialId")
+                    b.HasOne("SeeMoreInventory.Models.MaterialType", "Material")
                         .WithMany()
-                        .HasForeignKey("MaterialId1");
+                        .HasForeignKey("MaterialId");
                 });
 #pragma warning restore 612, 618
         }

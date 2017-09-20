@@ -1,0 +1,144 @@
+﻿@page
+@model InventoryModel
+@{
+    ViewData["Title"] = "Inventory";
+}
+<div class="row col-sm-12">
+    <div class="container-fluid inventoryForm">
+        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <div>
+                    <form>
+                        <input asp-action="GenerateCSV" class="btn btn-primary" type="submit" value="Generate CSV" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="row col-sm-8">
+                <table>
+                    <tr>
+                        <th>Product Label</th>
+                        <th>Sphere</th>
+                        <th>Cylinder</th>
+                        <th>Axis</th>
+                        <th>Material</th>
+                        <th>Coating</th>
+                        <th>Remaining Count</th>
+                        <th>Label</th>
+                    <tbody>
+                        @foreach (var lens in Model.Lenses)
+                        {
+                            var className = "";
+                            if (lens.LowInventoryWarning >= lens.RemainingCount)
+                            {
+                                className = "lowInventory";
+                            }
+                            else
+                            {
+                                className = "regularQuantity";
+                            }
+                            <tr class=@className>
+                                <td>@Html.ActionLink(lens.ProductLabel, "Edit", new { Id = lens.ProductLabel })</td>
+                                <td>@lens.Sphere</td>
+                                <td>@lens.Cylinder</td>
+                                <td>@lens.Axis</td>
+                                <td>@lens.Material</td>
+                                @if (lens.AntiReflectiveCoating)
+                                {
+                                    <td>Anti-Reflective</td>
+                                }
+                                else
+                                {
+                                    <td>None</td>
+                                }
+                                <td>@lens.RemainingCount</td>
+                                <td style="padding-left: 10px; padding-right: 10px">
+                                    <input class="btn btn-info AddLabel" type="button" value="Add" data-value="@(lens.ProductLabel)" id="btn_@(lens.ProductLabel)" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <form asp-action="PrintLabel">
+                    <div class="row">
+                        <table class="labelTable">
+                            <tr>
+                                <td class="col-sm-2 labelSheetBox">
+                                    <input asp-for="@Model.LabelViewModel.Box1IsSelected" type="checkbox" id="cbx1" onclick="clearSticker(id);" />
+                                    <label>No Sticker</label>
+                                    <br />
+                                    <br />
+                                    <input type="text" asp-for="@Model.LabelViewModel.Box1ProductLabel" class="labelSticker" id="cbxSheet1" />
+                                </td>
+                                <td class="col-sm-2 labelSheetBox">
+                                    <input asp-for="@Model.LabelViewModel.Box2IsSelected" type="checkbox" id="cbx2" onclick="clearSticker(id);" />
+                                    <label>No Sticker</label>
+                                    <br />
+                                    <br />
+                                    <input type="text" asp-for="@Model.LabelViewModel.Box2ProductLabel" class="labelSticker" id="cbxSheet2" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-2 labelSheetBox">
+                                    <input asp-for="@Model.LabelViewModel.Box3IsSelected" type="checkbox" id="cbx3" onclick="clearSticker(id);" />
+                                    <label>No Sticker</label>
+                                    <br />
+                                    <input type="text" asp-for="@Model.LabelViewModel.Box3ProductLabel" class="labelSticker" id="cbxSheet3" />
+                                </td>
+                                <td class="col-sm-2 labelSheetBox">
+                                    <input asp-for="@Model.LabelViewModel.Box4IsSelected" type="checkbox" id="cbx4" onclick="clearSticker(id);" />
+                                    <label>No Sticker</label>
+                                    <br />
+                                    <br />
+                                    <input type="text" asp-for="@Model.LabelViewModel.Box4ProductLabel" class="labelSticker" id="cbxSheet4" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-2 labelSheetBox">
+                                    <input asp-for="@Model.LabelViewModel.Box5IsSelected" type="checkbox" id="cbx5" onclick="clearSticker(id);" />
+                                    <label>No Sticker</label>
+                                    <br />
+                                    <br />
+                                    <input type="text" asp-for="@Model.LabelViewModel.Box5ProductLabel" class="labelSticker" id="cbxSheet5" />
+                                </td>
+                                <td class="col-sm-2 labelSheetBox">
+                                    <input asp-for="@Model.LabelViewModel.Box6IsSelected" type="checkbox" id="cbx6" onclick="clearSticker(id);" />
+                                    <label>No Sticker</label>
+                                    <br />
+                                    <br />
+                                    <input type="text" asp-for="@Model.LabelViewModel.Box6ProductLabel" class="labelSticker" id="cbxSheet6" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-2 labelSheetBox">
+                                    <input asp-for="@Model.LabelViewModel.Box7IsSelected" type="checkbox" id="cbx7" onclick="clearSticker(id);" />
+                                    <label>No Sticker</label>
+                                    <br />
+                                    <br />
+                                    <input type="text" asp-for="@Model.LabelViewModel.Box7ProductLabel" class="labelSticker" id="cbxSheet7" />
+                                </td>
+                                <td class="col-sm-2 labelSheetBox">
+                                    <input asp-for="@Model.LabelViewModel.Box8IsSelected" type="checkbox" id="cbx8" onclick="clearSticker(id);" />
+                                    <label>No Sticker</label>
+                                    <br />
+                                    <br />
+                                    <input type="text" asp-for="@Model.LabelViewModel.Box8ProductLabel" class="labelSticker" id="cbxSheet8" />
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <input class="btn btn-primary col-sm-2" value="Clear All" onclick="clearAll()" />
+                        <input class="btn btn-info col-sm-2" style="margin-left: 15px" asp-controller="Home" asp-action="PrintLabel" type="submit" value="Print" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row col-sm-12" style="padding-bottom: 200px">
+    </div>
+ </div>
