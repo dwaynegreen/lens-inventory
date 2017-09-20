@@ -19,43 +19,43 @@
         <div class="row">
             <div class="row col-sm-8">
                 <table>
-                    <tr>
-                        <th>Product Label</th>
-                        <th>Sphere</th>
-                        <th>Cylinder</th>
-                        <th>Axis</th>
-                        <th>Material</th>
-                        <th>Coating</th>
-                        <th>Remaining Count</th>
-                        <th>Label</th>
+                    <tr class="inventory">
+                        <th class="inventory">Product Label</th>
+                        <th class="inventory">Sphere</th>
+                        <th class="inventory">Cylinder</th>
+                        <th class="inventory">Axis</th>
+                        <th class="inventory">Material</th>
+                        <th class="inventory">Coating</th>
+                        <th class="inventory">Remaining Count</th>
+                        <th class="inventory">Label</th>
                     <tbody>
                         @foreach (var lens in Model.Lenses)
                         {
-                            var className = "";
+                            var className = "inventory ";
                             if (lens.LowInventoryWarning >= lens.RemainingCount)
                             {
-                                className = "lowInventory";
+                                className += "lowInventory";
                             }
                             else
                             {
-                                className = "regularQuantity";
+                                className += "regularQuantity";
                             }
                             <tr class=@className>
-                                <td>@Html.ActionLink(lens.ProductLabel, "Edit", new { Id = lens.ProductLabel })</td>
-                                <td>@lens.Sphere</td>
-                                <td>@lens.Cylinder</td>
-                                <td>@lens.Axis</td>
-                                <td>@lens.Material</td>
+                                <td class="inventory">@Html.ActionLink(lens.ProductLabel, "Edit", new { Id = lens.ProductLabel })</td>
+                                <td class="inventory">@lens.Sphere</td>
+                                <td class="inventory">@lens.Cylinder</td>
+                                <td class="inventory">@lens.Axis</td>
+                                <td class="inventory">@lens.Material</td>
                                 @if (lens.AntiReflectiveCoating)
                                 {
-                                    <td>Anti-Reflective</td>
+                                    <td class="inventory">Anti-Reflective</td>
                                 }
                                 else
                                 {
-                                    <td>None</td>
+                                    <td class="inventory">None</td>
                                 }
-                                <td>@lens.RemainingCount</td>
-                                <td style="padding-left: 10px; padding-right: 10px">
+                                <td class="inventory">@lens.RemainingCount</td>
+                                <td  class="inventory" style="padding-left: 10px; padding-right: 10px">
                                     <input class="btn btn-info AddLabel" type="button" value="Add" data-value="@(lens.ProductLabel)" id="btn_@(lens.ProductLabel)" />
                                 </td>
                             </tr>
