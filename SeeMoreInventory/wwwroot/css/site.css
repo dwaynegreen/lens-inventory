@@ -108,12 +108,16 @@ hr {
 th {
     padding-left: 25px;
     padding-right: 25px;
+    border-style: solid;
+    border-width: thin;
 }
 
 td {
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
+    border-style: solid;
+    border-width: thin;
 }
 
 label {
