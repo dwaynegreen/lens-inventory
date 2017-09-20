@@ -14,7 +14,8 @@ namespace SeeMoreInventory.Models
 
         public DbSet<Lens> Lenses { get; set; }
         public DbSet<LensHistory> LensHistory { get; set; }
-
+        
+        public DbSet<MaterialType> Materials { get; set; }
 
         public Lens Get(string productLabel)
         {
