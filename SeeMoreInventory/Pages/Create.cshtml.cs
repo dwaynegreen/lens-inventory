@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SeeMoreInventory.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SeeMoreInventory.Pages
 {
@@ -19,21 +20,43 @@ namespace SeeMoreInventory.Pages
 
         public IActionResult OnGet()
         {
+            List<MaterialType> materials = _context.Materials.Where(m => m.Deleted == false).ToList();
+            List<string> materialNames = new List<string>();
+            foreach (MaterialType material in materials)
+            {
+                materialNames.Add(material.Name);   
+            }
+            Materials = new SelectList(materialNames);
             return Page();
         }
 
         [BindProperty]
         public Lens Lens { get; set; }
 
+        public SelectList Materials;
+
+        [BindProperty]
+        public string SelectedMaterial { get; set; }
+
         public async Task<IActionResult> OnPostAsync()
         {
+            if (String.IsNullOrEmpty(SelectedMaterial))
+            {
+                return Page();
+            }
+            else
+            {
+                Lens.Material = _context.GetMaterialByName(SelectedMaterial);
+                _context.Lenses.Add(Lens);
+                await _context.SaveChangesAsync();
+
+                return RedirectToPage("./Index");
+            }
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
-            _context.Lenses.Add(Lens);
-            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

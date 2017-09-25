@@ -69,5 +69,10 @@ namespace SeeMoreInventory.Models
             return
                 LensHistory.Where(x => x.InsertDate >= today && x.InsertDate <= DateTime.Today.AddDays(1).Date).OrderByDescending(x => x.InsertDate);
         }
+
+        public MaterialType GetMaterialByName(string materialName)
+        {
+            return Materials.Where(n => n.Name == materialName).FirstOrDefault();
+        }
     }
 }

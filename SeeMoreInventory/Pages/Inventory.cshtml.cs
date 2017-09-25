@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using SeeMoreInventory.Models;
 using SeeMoreInventory.ViewModels;
 using System.Collections.Generic;
@@ -12,7 +14,7 @@ namespace SeeMoreInventory.Pages
         private readonly LensContext _lensData;
 
         [BindProperty]
-        public IList<Lens> Lenses { get; set; }
+        public IIncludableQueryable<Lens, MaterialType> Lenses { get; set; }
 
         [BindProperty]
         public LabelViewModel LabelViewModel { get; set; }
@@ -20,11 +22,13 @@ namespace SeeMoreInventory.Pages
         public InventoryModel(LensContext context)
         {
             _lensData = context;
+            var lenses = _lensData.Lenses.Include(i => i.Material);
+            Lenses = lenses;
         }
 
         public void OnGet()
         {
-            Lenses = _lensData.Lenses.ToList();
+            
         }
 
         public IActionResult GnerateCSV()
