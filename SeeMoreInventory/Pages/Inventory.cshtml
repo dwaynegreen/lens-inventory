@@ -17,7 +17,7 @@
         </div>
         <br />
         <div class="row">
-            <div class="row col-sm-8">
+            <div class="row col-sm-7">
                 <table>
                     <tr class="inventory">
                         <th class="inventory">Product Label</th>
@@ -25,7 +25,8 @@
                         <th class="inventory">Cylinder</th>
                         <th class="inventory">Axis</th>
                         <th class="inventory">Material</th>
-                        <th class="inventory">Coating</th>
+                        <th class="inventory">AR Coating</th>
+                        <th class="inventory">Transitions</th>
                         <th class="inventory">Remaining Count</th>
                         <th class="inventory">Label</th>
                     <tbody>
@@ -54,6 +55,16 @@
                                 {
                                     <td class="inventory">None</td>
                                 }
+                                @if (lens.Transitions)
+                                {
+                                    <td class="inventory">Yes</td>
+
+                                }
+                                else
+                                {
+                                    <td class="inventory">No</td>
+
+                                }
                                 <td class="inventory">@lens.RemainingCount</td>
                                 <td  class="inventory" style="padding-left: 10px; padding-right: 10px">
                                     <input class="btn btn-info AddLabel" type="button" value="Add" data-value="@(lens.ProductLabel)" id="btn_@(lens.ProductLabel)" />
@@ -63,7 +74,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <form asp-action="PrintLabel">
                     <div class="row">
                         <table class="labelTable">
