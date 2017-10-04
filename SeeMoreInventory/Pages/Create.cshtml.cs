@@ -50,7 +50,7 @@ namespace SeeMoreInventory.Pages
                 _context.Lenses.Add(Lens);
                 await _context.SaveChangesAsync();
 
-                return RedirectToPage("./Index");
+                return RedirectToPage("./Inventory");
             }
         }
     }
