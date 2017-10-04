@@ -52,13 +52,6 @@ namespace SeeMoreInventory.Pages
 
                 return RedirectToPage("./Index");
             }
-
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            return RedirectToPage("./Index");
         }
     }
 }

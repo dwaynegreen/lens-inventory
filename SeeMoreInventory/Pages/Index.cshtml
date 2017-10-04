@@ -13,11 +13,11 @@
             <div class="col-sm-1"></div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="col-sm-2">
-                <label asp-for="updateInventory.id" class="control-label"></label> 
+                <label asp-for="updateInventory.ProductLabel" class="control-label"></label> 
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-2">
-                <label asp-for="updateInventory.count" class="control-label"></label>
+                <label asp-for="updateInventory.Count" class="control-label"></label>
             </div>
             <div class="col-sm-2">
             </div>
@@ -27,13 +27,13 @@
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-2">
-                <input asp-for="updateInventory.id" class="form-control" value="" />
-                <span asp-validation-for="updateInventory.id" class="text-danger"></span>
+                <input asp-for="updateInventory.ProductLabel" class="form-control" value="" />
+                <span asp-validation-for="updateInventory.ProductLabel" class="text-danger"></span>
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-2">
-                <input asp-for="updateInventory.count" class="form-control" value="-1" />
-                <span asp-validation-for="updateInventory.count" class="text-danger"></span>
+                <input asp-for="updateInventory.Count" class="form-control" value="-1" />
+                <span asp-validation-for="updateInventory.Count" class="text-danger"></span>
             </div>
             <div class="col-sm-2">
                 <button class="btn btn-sq" type="button" id="plus">+</button>
@@ -72,7 +72,7 @@
                     <li class="col-sm-1">@historyRecord.Sphere</li>
                     <li class="col-sm-1">@historyRecord.Cylinder</li>
                     <li class="col-sm-1">@historyRecord.Axis</li>
-                    <li class="col-sm-1">@historyRecord.Material</li>
+                    <li class="col-sm-1">@historyRecord.Material.Name</li>
                     @if (historyRecord.AntiReflectiveCoating)
                     {
                         <li class="col-sm-2">Anti-Reflective</li>

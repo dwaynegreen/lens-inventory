@@ -16,8 +16,8 @@
             </div>
         </div>
         <br />
-        <div class="row">
-            <div class="row col-sm-7">
+        <div class="row inventoryForm">
+            <div class="col-sm-9">
                 <table>
                     <tr class="inventory">
                         <th class="inventory">Product Label</th>
@@ -42,7 +42,7 @@
                                 className += "regularQuantity";
                             }
                             <tr class=@className>
-                                <td class="inventory">@Html.ActionLink(lens.ProductLabel, "Edit", new { Id = lens.ProductLabel })</td>
+                                <td class="inventory"><a asp-page="./Edit" asp-route-id="@lens.ProductLabel">@lens.ProductLabel</a></td>
                                 <td class="inventory">@lens.Sphere</td>
                                 <td class="inventory">@lens.Cylinder</td>
                                 <td class="inventory">@lens.Axis</td>
@@ -74,7 +74,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-3">
                 <form asp-action="PrintLabel">
                     <div class="row">
                         <table class="labelTable">
@@ -150,6 +150,5 @@
             </div>
         </div>
     </div>
-    <div class="row col-sm-12" style="padding-bottom: 200px">
-    </div>
+    <div class="row col-sm-12" style="padding-bottom: 200px"></div>
  </div>

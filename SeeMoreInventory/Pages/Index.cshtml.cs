@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SeeMoreInventory.Models;
 using SeeMoreInventory.ViewModels;
-using Newtonsoft.Json;
-using System.Linq;
 
 namespace SeeMoreInventory.Pages
 {
@@ -19,7 +17,7 @@ namespace SeeMoreInventory.Pages
         public UpdateInventoryCountViewModel updateInventory { get; set; }
 
         [BindProperty]
-        public IList<LensHistory> LensHistory { get; set; }
+        public List<LensHistory> LensHistory { get; set; }
 
         public IndexModel(LensContext lensData)
         {
@@ -33,15 +31,12 @@ namespace SeeMoreInventory.Pages
 
         public async Task OnPostAsync()
         {
-            if (_lensData.ValidateLens(updateInventory.id))
+            if (_lensData.ValidateLens(updateInventory.ProductLabel))
             {
-                _lensData.DecrementInventory(updateInventory.id, updateInventory.count);
-                _lensData.UpdateHistory(updateInventory.id, updateInventory.count);
+                _lensData.DecrementInventory(updateInventory.ProductLabel, updateInventory.Count);
+                _lensData.UpdateHistory(updateInventory.ProductLabel, updateInventory.Count);
             }
-
             await OnGetAsync();
         }
-
-        
     }
 }

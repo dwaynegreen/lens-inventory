@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System;
 
@@ -14,7 +13,6 @@ namespace SeeMoreInventory.Models
 
         public DbSet<Lens> Lenses { get; set; }
         public DbSet<LensHistory> LensHistory { get; set; }
-        
         public DbSet<MaterialType> Materials { get; set; }
 
         public Lens Get(string productLabel)
@@ -44,21 +42,21 @@ namespace SeeMoreInventory.Models
 
         public void UpdateHistory(string productLabel, int quantity)
         {
-            Lens lens = Get(productLabel);
+            var lens = Lenses.Where(l => l.ProductLabel == productLabel).Include(m => m.Material).ToList();
 
-            LensHistory lensHistoryToUpdate = new LensHistory();
-
-            lensHistoryToUpdate.Axis = lens.Axis;
-            lensHistoryToUpdate.AntiReflectiveCoating = lens.AntiReflectiveCoating;
-            lensHistoryToUpdate.Cylinder = lens.Cylinder;
-            lensHistoryToUpdate.Material = lens.Material;
-            lensHistoryToUpdate.ProductLabel = lens.ProductLabel;
-            lensHistoryToUpdate.Sphere = lens.Sphere;
-            lensHistoryToUpdate.RemainingCount = lens.RemainingCount;
-            lensHistoryToUpdate.Quantity = quantity;
-
-            lensHistoryToUpdate.InsertDate = DateTime.Now;
-
+            LensHistory lensHistoryToUpdate = new LensHistory
+            {
+                ProductLabel = lens[0].ProductLabel,
+                Sphere = lens[0].Sphere,
+                Cylinder = lens[0].Cylinder,
+                AntiReflectiveCoating = lens[0].AntiReflectiveCoating,
+                Transitions = lens[0].Transitions,
+                Axis = lens[0].Axis,
+                Material = lens[0].Material,
+                Quantity = quantity,
+                RemainingCount = lens[0].RemainingCount,
+                InsertDate = DateTime.Now
+            };
             LensHistory.Add(lensHistoryToUpdate);
             SaveChanges();
         }
@@ -67,7 +65,7 @@ namespace SeeMoreInventory.Models
         {
             var today = DateTime.Now.Date;
             return
-                LensHistory.Where(x => x.InsertDate >= today && x.InsertDate <= DateTime.Today.AddDays(1).Date).OrderByDescending(x => x.InsertDate);
+                LensHistory.Where(x => x.InsertDate >= today && x.InsertDate <= DateTime.Today.AddDays(1).Date).OrderByDescending(x => x.InsertDate).Include(m => m.Material);
         }
 
         public MaterialType GetMaterialByName(string materialName)

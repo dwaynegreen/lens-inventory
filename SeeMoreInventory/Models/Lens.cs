@@ -24,6 +24,7 @@ namespace SeeMoreInventory.Models
 
         public bool AntiReflectiveCoating { get; set; }
 
+        [Required]
         public MaterialType Material { get; set; }
 
         public bool Transitions { get; set; }

@@ -5,8 +5,8 @@ namespace SeeMoreInventory.ViewModels
     public class UpdateInventoryCountViewModel
     {
         [Display(Name = "Product Label")]
-        public string id { get; set; }
+        public string ProductLabel { get; set; }
         [Display(Name = "Quantity")]
-        public int count { get; set; }
+        public int Count { get; set; }
     }
 }

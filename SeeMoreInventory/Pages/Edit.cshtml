@@ -1,0 +1,80 @@
+@page
+@model SeeMoreInventory.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Lens</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Lens.ProductLabel" />
+            <div class="form-group">
+                <label asp-for="Lens.ProductLabel" class="control-label"></label>
+                <input asp-for="Lens.ProductLabel" class="form-control" />
+                <span asp-validation-for="Lens.ProductLabel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lens.Sphere" class="control-label"></label>
+                <input asp-for="Lens.Sphere" class="form-control" />
+                <span asp-validation-for="Lens.Sphere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lens.Cylinder" class="control-label"></label>
+                <input asp-for="Lens.Cylinder" class="form-control" />
+                <span asp-validation-for="Lens.Cylinder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lens.Axis" class="control-label"></label>
+                <input asp-for="Lens.Axis" class="form-control" />
+                <span asp-validation-for="Lens.Axis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lens.Material.Name" class="control-label"></label>
+                <select asp-for="selectedMaterial" asp-items="@Model.Materials" class="form-control">
+                </select>
+                <span asp-validation-for="Lens.Material.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Lens.AntiReflectiveCoating" /> @Html.DisplayNameFor(model => model.Lens.AntiReflectiveCoating)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Lens.Transitions" /> @Html.DisplayNameFor(model => model.Lens.Transitions)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lens.RemainingCount" class="control-label"></label>
+                <input asp-for="Lens.RemainingCount" class="form-control" />
+                <span asp-validation-for="Lens.RemainingCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lens.LowInventoryWarning" class="control-label"></label>
+                <input asp-for="Lens.LowInventoryWarning" class="form-control" />
+                <span asp-validation-for="Lens.LowInventoryWarning" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
