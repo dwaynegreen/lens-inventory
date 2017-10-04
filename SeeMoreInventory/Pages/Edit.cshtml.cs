@@ -91,11 +91,13 @@ namespace SeeMoreInventory.Pages
 
         public async Task<IActionResult> OnPostDeleteAsync(string productLabel)
         {
-            var Lens = await _context.Lenses.FindAsync(productLabel);
+            var thingToDelete = Lens.ProductLabel;
+            Lens l = await _context.Lenses.FindAsync(thingToDelete);
+            
 
             if (Lens != null)
             {
-                _context.Lenses.Remove(Lens);
+                _context.Lenses.Remove(l);
                 await _context.SaveChangesAsync();
             }
 
