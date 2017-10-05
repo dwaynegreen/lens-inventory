@@ -6,6 +6,9 @@ namespace SeeMoreInventory.Models
 {
     public class Lens
     {
+        public Lens()
+        { }
+
         [Key]
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

@@ -5,6 +5,8 @@ namespace SeeMoreInventory.Models
 {
     public class MaterialType
     {
+        public MaterialType()
+        { }
         public int Id { get; set; }
       
         [Required]

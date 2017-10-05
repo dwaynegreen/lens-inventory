@@ -42,6 +42,15 @@
           }
         }
       },
+      "LINQtoCSV/1.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/net35/LINQtoCSV.dll": {}
+        },
+        "runtime": {
+          "lib/net35/LINQtoCSV.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.4.0": {
         "type": "package",
         "dependencies": {
@@ -5049,6 +5058,16 @@
         "runtimes/win-arm/native/libuv.dll",
         "runtimes/win-x64/native/libuv.dll",
         "runtimes/win-x86/native/libuv.dll"
+      ]
+    },
+    "LINQtoCSV/1.5.0": {
+      "sha512": "R3FWKGV326oWhEIJFgBQvJyeEs7ylViAMjTYs1YetwVdGfbDGf465xfLaxUxePwF/8Tcajt/1Llj3exhYL2xhQ==",
+      "type": "package",
+      "path": "linqtocsv/1.5.0",
+      "files": [
+        "lib/net35/LINQtoCSV.dll",
+        "linqtocsv.1.5.0.nupkg.sha512",
+        "linqtocsv.nuspec"
       ]
     },
     "Microsoft.ApplicationInsights/2.4.0": {
@@ -13109,6 +13128,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "LinqToCsv >= 1.5.0",
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.0",
@@ -13177,6 +13197,10 @@
             "target": "Package",
             "version": "2.0.0"
           },
+          "LinqToCsv": {
+            "target": "Package",
+            "version": "1.5.0"
+          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "2.0.0"
@@ -13189,5 +13213,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'LINQtoCSV 1.5.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "LINQtoCSV",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    }
+  ]
 }

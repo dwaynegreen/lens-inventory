@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "cd945696cff90a9745d51031f9ca805e22e8725c"
+    "signature": "857375a9ff7afbd3eaed2151d73485470f00c22b"
   },
   "compilationOptions": {
     "defines": [
@@ -23,6 +23,7 @@
     ".NETCoreApp,Version=v2.0": {
       "SeeMoreInventory/1.0.0": {
         "dependencies": {
+          "LINQtoCSV": "1.5.0",
           "Microsoft.AspNetCore.All": "2.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.0",
@@ -73,6 +74,14 @@
             "rid": "win-x86",
             "assetType": "native"
           }
+        }
+      },
+      "LINQtoCSV/1.5.0": {
+        "runtime": {
+          "lib/net35/LINQtoCSV.dll": {}
+        },
+        "compile": {
+          "lib/net35/LINQtoCSV.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/2.4.0": {
@@ -4246,6 +4255,13 @@
       "sha512": "sha512-GsCf4q+eyaI49rCPlgYxdxa1SQCysXFFdSJWdstrwxytg4+VPYLYrXD4AT2rjHVJ+UF7SSWX9CapWEYaU4ejVQ==",
       "path": "libuv/1.10.0",
       "hashPath": "libuv.1.10.0.nupkg.sha512"
+    },
+    "LINQtoCSV/1.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-R3FWKGV326oWhEIJFgBQvJyeEs7ylViAMjTYs1YetwVdGfbDGf465xfLaxUxePwF/8Tcajt/1Llj3exhYL2xhQ==",
+      "path": "linqtocsv/1.5.0",
+      "hashPath": "linqtocsv.1.5.0.nupkg.sha512"
     },
     "Microsoft.ApplicationInsights/2.4.0": {
       "type": "package",
