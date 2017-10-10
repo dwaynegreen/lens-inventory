@@ -13164,6 +13164,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://nuget:8080/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

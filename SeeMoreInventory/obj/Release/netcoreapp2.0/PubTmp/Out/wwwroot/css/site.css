@@ -78,7 +78,7 @@ hr {
 }
 
 .inventoryForm {
-    margin-left: 60px;
+    margin-left: -15px;
 }
 
 .editForm {
@@ -114,6 +114,7 @@ hr {
 .inventory {
     border-style: solid;
     border-width: thin;
+    font-size: medium;
 }
 
 th {
