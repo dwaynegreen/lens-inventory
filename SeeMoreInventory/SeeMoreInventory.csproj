@@ -3,7 +3,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LinqToCsv" Version="1.5.0" />
+    <PackageReference Include="CsvHelper" Version="3.1.0" />
+    <PackageReference Include="iTextSharp.LGPLv2.Core" Version="1.3.2" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.0" />
