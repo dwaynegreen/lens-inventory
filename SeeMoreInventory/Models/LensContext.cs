@@ -72,5 +72,7 @@ namespace SeeMoreInventory.Models
         {
             return Materials.Where(n => n.Name == materialName).FirstOrDefault();
         }
+
+        
     }
 }

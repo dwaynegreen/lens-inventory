@@ -144,32 +144,20 @@ namespace SeeMoreInventory.Pages
 
         public IActionResult OnPostAllInventory()
         {
+
             string filename = DateTime.Now.ToString("MMddyyyyhhmm") + ".csv";
             string filepath = @"wwwroot\csv\" + filename;
             using (StreamWriter streamWriter = new StreamWriter(filepath))
             {
-
                 CsvWriter writer = new CsvWriter(streamWriter);
-                writer.WriteRecords(_lensData.Lenses.ToList());
+                
+                
+
+
+                writer.WriteRecords(_lensData.Lenses.Include(m=>m.Material).ToList());
             }
             PhysicalFileResult result = new PhysicalFileResult(Path.Combine(_env.ContentRootPath, filepath), "text/csv");
             return result;
-
-                //CsvHelper.CsvWriter writer = new CsvWriter(new TextWriter)
-
-
-            //List<Lens> csvData = new List<Lens>();
-            //csvData = _lensData.Lenses.Include(m => m.Material).ToList();
-
-            //return new OkObjectResult(csvData);
-
-            //Works
-            //PhysicalFileResult result = new PhysicalFileResult("C:\\Users\\dgreen\\Source\\Repos\\lens-inventory\\SeeMoreInventory\\wwwroot\\csv\\Test.csv", "text/csv");
-            //PhysicalFileResult result = new PhysicalFileResult(@"././csv/Test.csv", "text/csv");
-
-            //return result;
-
         }
-
     }
 }
