@@ -8,7 +8,6 @@ namespace SeeMoreInventory.Models
     {
         public LensContext(DbContextOptions<LensContext> options) : base(options)
         {
-            
         }
 
         public DbSet<Lens> Lenses { get; set; }
@@ -72,7 +71,5 @@ namespace SeeMoreInventory.Models
         {
             return Materials.Where(n => n.Name == materialName).FirstOrDefault();
         }
-
-        
     }
 }

@@ -150,10 +150,6 @@ namespace SeeMoreInventory.Pages
             using (StreamWriter streamWriter = new StreamWriter(filepath))
             {
                 CsvWriter writer = new CsvWriter(streamWriter);
-                
-                
-
-
                 writer.WriteRecords(_lensData.Lenses.Include(m=>m.Material).ToList());
             }
             PhysicalFileResult result = new PhysicalFileResult(Path.Combine(_env.ContentRootPath, filepath), "text/csv");

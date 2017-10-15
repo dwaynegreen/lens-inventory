@@ -46,10 +46,8 @@ namespace SeeMoreInventory.Pages
             {
                 materialNames.Add(Lens.Material.Name);
             }
+
             Materials = new SelectList(materialNames);
-
-
-
             selectedMaterial = Lens.Material.Name;
 
             if (Lens == null)
