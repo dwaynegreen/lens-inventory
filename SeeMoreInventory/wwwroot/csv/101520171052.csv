@@ -1,9 +1,0 @@
-ProductLabel,Sphere,Cylinder,Axis,AntiReflectiveCoating,Id,Name,Deleted,Transitions,RemainingCount,LowInventoryWarning
-100012,-3.00,-3.00,,False,0,,False,True,100,25
-New Product,0.00,0.00,0,True,0,,False,False,98,10
-NewProdToEdit,1.00,-2.00,,True,0,,False,False,100,10
-Test,0.00,0.00,,True,0,,False,True,122,10
-Test2,1.00,-1.00,,True,0,,False,False,7,10
-Test3,0.00,0.00,,False,0,,False,True,-2,1
-TestingNewInline,0.00,-1.00,,True,0,,False,False,93,10
-TestingNewInline2,0.00,-1.00,,True,0,,False,False,100,10
