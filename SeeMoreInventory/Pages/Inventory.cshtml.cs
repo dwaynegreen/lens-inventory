@@ -7,11 +7,9 @@ using SeeMoreInventory.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using SeeMoreInventory.Services;
-using System.Threading.Tasks;
 using System.IO;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.Net.Http.Headers;
 using Microsoft.AspNetCore.Hosting;
+using System;
 
 namespace SeeMoreInventory.Pages
 {
@@ -26,40 +24,6 @@ namespace SeeMoreInventory.Pages
 
         [BindProperty]
         public LabelViewModel LabelViewModel { get; set; }
-        //[BindProperty]
-        //public bool Box1IsSelected { get; set; }
-        //[BindProperty]
-        //public bool Box2IsSelected { get; set; }
-        //[BindProperty]
-        //public bool Box3IsSelected { get; set; }
-        //[BindProperty]
-        //public bool Box4IsSelected { get; set; }
-        //[BindProperty]
-        //public bool Box5IsSelected { get; set; }
-        //[BindProperty]
-        //public bool Box6IsSelected { get; set; }
-        //[BindProperty]
-        //public bool Box7IsSelected { get; set; }
-        //[BindProperty]
-        //public bool Box8IsSelected { get; set; }
-
-        //[BindProperty]
-        //public string Box1ProductLabel { get; set; }
-        //[BindProperty]
-        //public string Box2ProductLabel { get; set; }
-        //[BindProperty]
-        //public string Box3ProductLabel { get; set; }
-        //[BindProperty]
-        //public string Box4ProductLabel { get; set; }
-        //[BindProperty]
-        //public string Box5ProductLabel { get; set; }
-        //[BindProperty]
-        //public string Box6ProductLabel { get; set; }
-        //[BindProperty]
-        //public string Box7ProductLabel { get; set; }
-        //[BindProperty]
-        //public string Box8ProductLabel { get; set; }
-
         public InventoryModel(LensContext context, IHostingEnvironment env)
         {
             _lensData = context;
@@ -158,7 +122,6 @@ namespace SeeMoreInventory.Pages
                 boxesToPrint[i].IsSelected = boxesSelected[i];
                 if (productLabels[i] != null)
                 {
-                    //boxesToPrint[i].LensInfo = _lensData.Get(productLabels[i]);
                     boxesToPrint[i].LensInfo = _lensData.Lenses.Include(m => m.Material).Where(l => l.ProductLabel == productLabels[i]).FirstOrDefault();
                 }
                 else
@@ -179,16 +142,22 @@ namespace SeeMoreInventory.Pages
             }
         }
 
-        public IActionResult OnPostSaveToCSV()
-        {
-            return RedirectToPage("./Inventory");
-        }
-
-        [HttpGet]
-        [Route("data.csv")]
-        [Produces("text/csv")]
         public IActionResult OnPostAllInventory()
         {
+            string filename = DateTime.Now.ToString("MMddyyyyhhmm") + ".csv";
+            string filepath = @"wwwroot\csv\" + filename;
+            using (StreamWriter streamWriter = new StreamWriter(filepath))
+            {
+
+                CsvWriter writer = new CsvWriter(streamWriter);
+                writer.WriteRecords(_lensData.Lenses.ToList());
+            }
+            PhysicalFileResult result = new PhysicalFileResult(Path.Combine(_env.ContentRootPath, filepath), "text/csv");
+            return result;
+
+                //CsvHelper.CsvWriter writer = new CsvWriter(new TextWriter)
+
+
             //List<Lens> csvData = new List<Lens>();
             //csvData = _lensData.Lenses.Include(m => m.Material).ToList();
 
@@ -196,9 +165,9 @@ namespace SeeMoreInventory.Pages
 
             //Works
             //PhysicalFileResult result = new PhysicalFileResult("C:\\Users\\dgreen\\Source\\Repos\\lens-inventory\\SeeMoreInventory\\wwwroot\\csv\\Test.csv", "text/csv");
-            PhysicalFileResult result = new PhysicalFileResult(@"././csv/Test.csv", "text/csv");
+            //PhysicalFileResult result = new PhysicalFileResult(@"././csv/Test.csv", "text/csv");
 
-            return result;
+            //return result;
 
         }
 

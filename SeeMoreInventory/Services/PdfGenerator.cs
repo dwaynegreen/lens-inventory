@@ -18,44 +18,52 @@ namespace SeeMoreInventory.Services
         {
             //Box 1
             new BoxDisplayInfo(
-                new BoundingLocation() { X = 45, Y = 760}, new SphereColorLocation() { X = 70, Y = 735}, new MaterialLocation() { X = 180, Y = 730},
-                new AntiReflectiveLocation() { X = 70, Y = 730}, new SphereLocation() { X = 180, Y = 700}, new ProductLabelLocation() { X = 170, Y = 610},
-                new BarcodeLocation() { X = 125, Y = 610}),
+                new BoundingLocation() { X = 45, Y = 760}, new SphereColorLocation() { X = 70, Y = 735}, 
+                new MaterialLocation() { X = 180, Y = 730}, new AntiReflectiveLocation() { X = 70, Y = 730}, 
+                new TransitionsLocation() {X = 70, Y = 690 }, new SphereLocation() { X = 180, Y = 700}, 
+                new ProductLabelLocation() { X = 170, Y = 610}, new BarcodeLocation() { X = 125, Y = 610}),
             //Box 2
             new BoxDisplayInfo(
-                new BoundingLocation() { X = 325, Y = 760 }, new SphereColorLocation() { X = 350, Y = 735}, new MaterialLocation() { X = 460, Y = 730},
-                new AntiReflectiveLocation() { X = 350, Y = 730}, new SphereLocation() { X = 460, Y = 700}, new ProductLabelLocation() { X = 460, Y = 610},
-                new BarcodeLocation() { X = 415, Y = 610}),
+                new BoundingLocation() { X = 325, Y = 760 }, new SphereColorLocation() { X = 350, Y = 735}, 
+                new MaterialLocation() { X = 460, Y = 730}, new AntiReflectiveLocation() { X = 350, Y = 730},
+                new TransitionsLocation() {X = 350, Y = 690 }, new SphereLocation() { X = 460, Y = 700}, 
+                new ProductLabelLocation() { X = 460, Y = 610},  new BarcodeLocation() { X = 415, Y = 610}),
             //Box 3
             new BoxDisplayInfo(
-                new BoundingLocation() { X = 45, Y = 570 }, new SphereColorLocation() { X = 70, Y = 545}, new MaterialLocation() { X = 180, Y = 540},
-                new AntiReflectiveLocation() { X = 70, Y = 540}, new SphereLocation() { X = 180, Y = 510}, new ProductLabelLocation() { X = 170, Y = 420},
-                new BarcodeLocation() { X = 125, Y = 420}),
+                new BoundingLocation() { X = 45, Y = 570 }, new SphereColorLocation() { X = 70, Y = 545},
+                new MaterialLocation() { X = 180, Y = 540}, new AntiReflectiveLocation() { X = 70, Y = 540},
+                new TransitionsLocation() {X = 70, Y = 500 }, new SphereLocation() { X = 180, Y = 510}, 
+                new ProductLabelLocation() { X = 170, Y = 420}, new BarcodeLocation() { X = 125, Y = 420}),
             //Box 4
             new BoxDisplayInfo(
-                new BoundingLocation() { X = 325, Y = 570 }, new SphereColorLocation() { X = 350, Y = 545}, new MaterialLocation() { X = 460, Y = 540 },
-                new AntiReflectiveLocation() { X = 350, Y = 540}, new SphereLocation() { X = 460, Y = 510}, new ProductLabelLocation() { X = 460, Y = 420},
-                new BarcodeLocation() { X = 415, Y = 420}),
+                new BoundingLocation() { X = 325, Y = 570 }, new SphereColorLocation() { X = 350, Y = 545}, 
+                new MaterialLocation() { X = 460, Y = 540 }, new AntiReflectiveLocation() { X = 350, Y = 540},
+                new TransitionsLocation() {X = 350, Y = 500 }, new SphereLocation() { X = 460, Y = 510}, 
+                new ProductLabelLocation() { X = 460, Y = 420}, new BarcodeLocation() { X = 415, Y = 420}),
             //Box 5
             new BoxDisplayInfo(
-                new BoundingLocation() { X = 45, Y = 380 }, new SphereColorLocation() { X = 70, Y = 355}, new MaterialLocation() { X = 180, Y = 350 },
-                new AntiReflectiveLocation() { X = 70, Y = 350}, new SphereLocation() { X = 180, Y = 320}, new ProductLabelLocation() { X = 170, Y = 230},
-                new BarcodeLocation() { X = 125, Y = 230}),
+                new BoundingLocation() { X = 45, Y = 380 }, new SphereColorLocation() { X = 70, Y = 355}, 
+                new MaterialLocation() { X = 180, Y = 350 }, new AntiReflectiveLocation() { X = 70, Y = 350},
+                new TransitionsLocation() {X = 70, Y = 305 }, new SphereLocation() { X = 180, Y = 320}, 
+                new ProductLabelLocation() { X = 170, Y = 230},  new BarcodeLocation() { X = 125, Y = 230}),
             //Box 6
             new BoxDisplayInfo(
-                new BoundingLocation() { X = 325, Y = 380 }, new SphereColorLocation() { X = 350, Y = 355}, new MaterialLocation() { X = 460, Y = 350 },
-                new AntiReflectiveLocation() { X = 350, Y = 350}, new SphereLocation() { X = 460, Y = 320}, new ProductLabelLocation() { X = 460, Y = 230},
-                new BarcodeLocation() { X = 415, Y = 230}),
+                new BoundingLocation() { X = 325, Y = 380 }, new SphereColorLocation() { X = 350, Y = 355}, 
+                new MaterialLocation() { X = 460, Y = 350 }, new AntiReflectiveLocation() { X = 350, Y = 350},
+                new TransitionsLocation() {X = 350, Y = 305 }, new SphereLocation() { X = 460, Y = 320}, 
+                new ProductLabelLocation() { X = 460, Y = 230}, new BarcodeLocation() { X = 415, Y = 230}),
             //Box 7
             new BoxDisplayInfo(
-                new BoundingLocation() { X = 45, Y = 190 }, new SphereColorLocation() { X = 70, Y = 165}, new MaterialLocation() { X = 180, Y = 160 },
-                new AntiReflectiveLocation() { X = 70, Y = 160}, new SphereLocation() { X = 180, Y = 130}, new ProductLabelLocation() { X = 170, Y = 40},
-                new BarcodeLocation() { X = 125, Y = 40}),
+                new BoundingLocation() { X = 45, Y = 190 }, new SphereColorLocation() { X = 70, Y = 165}, 
+                new MaterialLocation() { X = 180, Y = 160 }, new AntiReflectiveLocation() { X = 70, Y = 160}, 
+                new TransitionsLocation() {X = 70, Y = 120 }, new SphereLocation() { X = 180, Y = 130}, 
+                new ProductLabelLocation() { X = 170, Y = 40}, new BarcodeLocation() { X = 125, Y = 40}),
             //Box 8
             new BoxDisplayInfo(
-                new BoundingLocation() { X = 325, Y = 190 }, new SphereColorLocation() { X = 350, Y = 165}, new MaterialLocation() { X = 460, Y = 160 },
-                new AntiReflectiveLocation() { X = 350, Y = 160}, new SphereLocation() { X = 460, Y = 130}, new ProductLabelLocation() { X = 460, Y = 40},
-                new BarcodeLocation() { X = 415, Y = 40})
+                new BoundingLocation() { X = 325, Y = 190 }, new SphereColorLocation() { X = 350, Y = 165}, 
+                new MaterialLocation() { X = 460, Y = 160 }, new AntiReflectiveLocation() { X = 350, Y = 160}, 
+                new TransitionsLocation() {X = 350, Y = 120 }, new SphereLocation() { X = 460, Y = 130}, 
+                new ProductLabelLocation() { X = 460, Y = 40}, new BarcodeLocation() { X = 415, Y = 40})
         };
 
         public static string GenerateReport(Box[] boxes)
@@ -114,8 +122,8 @@ namespace SeeMoreInventory.Services
                     if (boxInfo[i].LensInfo.Transitions)
                     {
                         canvas.BeginText();
-                        canvas.SetFontAndSize(bf_helvBold, 12);
-                        canvas.ShowTextAligned(Element.ALIGN_CENTER, "T", boundingBoxLocations[i].AntiReflectiveLocation.X + 15, boundingBoxLocations[i].AntiReflectiveLocation.Y + 15, 0);
+                        canvas.SetFontAndSize(bf_helvBold, 16);
+                        canvas.ShowTextAligned(Element.ALIGN_CENTER, "T", boundingBoxLocations[i].TransitionsLocation.X, boundingBoxLocations[i].TransitionsLocation.Y, 0);
                         canvas.EndText();
                     }
 
@@ -129,7 +137,14 @@ namespace SeeMoreInventory.Services
                     //POWER SPHERE
                     canvas.BeginText();
                     canvas.SetFontAndSize(bf_helvBold, 12);
-                    canvas.ShowTextAligned(Element.ALIGN_CENTER, boxInfo[i].LensInfo.Sphere.ToString().ToUpper() + " / " + boxInfo[i].LensInfo.Cylinder.ToString().ToUpper(), boundingBoxLocations[i].SphereLocation.X, boundingBoxLocations[i].SphereLocation.Y, 0);
+                    if (boxInfo[i].LensInfo.Sphere > 0.00m)
+                    {
+                        canvas.ShowTextAligned(Element.ALIGN_CENTER, "+" + boxInfo[i].LensInfo.Sphere.ToString().ToUpper() + " / " + boxInfo[i].LensInfo.Cylinder.ToString().ToUpper(), boundingBoxLocations[i].SphereLocation.X, boundingBoxLocations[i].SphereLocation.Y, 0);
+                    }
+                    else
+                    {
+                        canvas.ShowTextAligned(Element.ALIGN_CENTER, boxInfo[i].LensInfo.Sphere.ToString().ToUpper() + " / " + boxInfo[i].LensInfo.Cylinder.ToString().ToUpper(), boundingBoxLocations[i].SphereLocation.X, boundingBoxLocations[i].SphereLocation.Y, 0);
+                    }
                     canvas.EndText();
 
                     //Barcode
@@ -166,19 +181,22 @@ namespace SeeMoreInventory.Services
         public SphereColorLocation SphereColorLocation { get; set; }
         public MaterialLocation MaterialLocation { get; set; }
         public AntiReflectiveLocation AntiReflectiveLocation { get; set; }
+        public TransitionsLocation TransitionsLocation { get; set; }
         public SphereLocation SphereLocation { get; set; }
         public ProductLabelLocation ProductLabelLocation { get; set; }
         public BarcodeLocation BarcodeLocation { get; set; }
 
-        public BoxDisplayInfo(BoundingLocation boundingLocation, SphereColorLocation sphereColorLocation, MaterialLocation materialLocation, AntiReflectiveLocation antiReflectiveLocation, SphereLocation sphereLocation, ProductLabelLocation productLabelLocation, BarcodeLocation barcodeLocation)
+        public BoxDisplayInfo(BoundingLocation boundingLocation, SphereColorLocation sphereColorLocation, MaterialLocation materialLocation, AntiReflectiveLocation antiReflectiveLocation, TransitionsLocation transitionsLocation, SphereLocation sphereLocation, ProductLabelLocation productLabelLocation, BarcodeLocation barcodeLocation)
         {
             BoundingLocation = boundingLocation;
             SphereColorLocation = sphereColorLocation;
             MaterialLocation = materialLocation;
             AntiReflectiveLocation = antiReflectiveLocation;
+            TransitionsLocation = transitionsLocation;
             SphereLocation = sphereLocation;
             ProductLabelLocation = productLabelLocation;
             BarcodeLocation = barcodeLocation;
+
         }
     }
 
@@ -201,6 +219,12 @@ namespace SeeMoreInventory.Services
     }
 
     public class AntiReflectiveLocation
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+    }
+
+    public class TransitionsLocation
     {
         public int X { get; set; }
         public int Y { get; set; }
