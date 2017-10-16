@@ -18,8 +18,6 @@ namespace SeeMoreInventory.Models
         [Range(-10.00, 0.00)]
         public decimal Cylinder { get; set; }
 
-        public int? Axis { get; set; }
-
         public bool AntiReflectiveCoating { get; set; }
 
         public MaterialType Material { get; set; }

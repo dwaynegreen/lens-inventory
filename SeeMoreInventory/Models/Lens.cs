@@ -22,8 +22,6 @@ namespace SeeMoreInventory.Models
         [Range(-8.00, 0.00)]
         public decimal Cylinder { get; set; }
 
-        public int? Axis { get; set; }
-
         public bool AntiReflectiveCoating { get; set; }
 
         [Required]

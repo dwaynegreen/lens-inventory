@@ -23,7 +23,6 @@
                         <th class="inventory">Product Label</th>
                         <th class="inventory">Sphere</th>
                         <th class="inventory">Cylinder</th>
-                        <th class="inventory">Axis</th>
                         <th class="inventory">Material</th>
                         <th class="inventory">AR Coating</th>
                         <th class="inventory">Transitions</th>
@@ -45,7 +44,6 @@
                                 <td class="inventory"><a asp-page="./Edit" asp-route-id="@lens.ProductLabel">@lens.ProductLabel</a></td>
                                 <td class="inventory">@lens.Sphere</td>
                                 <td class="inventory">@lens.Cylinder</td>
-                                <td class="inventory">@lens.Axis</td>
                                 <td class="inventory">@lens.Material.Name</td>
                                 @if (lens.AntiReflectiveCoating)
                                 {

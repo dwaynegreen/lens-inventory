@@ -11,9 +11,10 @@ using System;
 namespace SeeMoreInventory.Migrations
 {
     [DbContext(typeof(LensContext))]
-    partial class LensContextModelSnapshot : ModelSnapshot
+    [Migration("20171016162723_RemoveAxis")]
+    partial class RemoveAxis
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

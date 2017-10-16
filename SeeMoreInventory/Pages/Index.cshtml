@@ -42,19 +42,18 @@
                 <input class="btn btn-primary" style="align-self:flex-start" type="submit" id="submit" value="Update" onclick="$('#updateInventory_ProductLabel').focus()"/>
             </div>
         </div>
-</form>
+    </form>
 </div>
     <br />
 <div>
     <div class="Report row">
         <hr />
         <ul class="ReportHeader">
-            <li class="col-sm-1">ProductLabel</li>
+            <li class="col-sm-2">ProductLabel</li>
             <li class="col-sm-1">Sphere</li>
             <li class="col-sm-1">Cylinder</li>
-            <li class="col-sm-1">Axis</li>
             <li class="col-sm-1">Material</li>
-            <li class="col-sm-2">Coating</li>
+            <li class="col-sm-1">Coating</li>
             <li class="col-sm-1">Transitions</li>
             <li class="col-sm-1">Quantity</li>
             <li class="col-sm-2">Remaining Quantity</li>
@@ -67,18 +66,17 @@
             @foreach (var historyRecord in Model.LensHistory)
             {
                 <ul class="ReportRow">
-                    <li class="col-sm-1">@historyRecord.ProductLabel</li>
+                    <li class="col-sm-2">@historyRecord.ProductLabel</li>
                     <li class="col-sm-1">@historyRecord.Sphere</li>
                     <li class="col-sm-1">@historyRecord.Cylinder</li>
-                    <li class="col-sm-1">@historyRecord.Axis</li>
                     <li class="col-sm-1">@historyRecord.Material.Name</li>
                     @if (historyRecord.AntiReflectiveCoating)
                     {
-                        <li class="col-sm-2">Anti-Reflective</li>
+                        <li class="col-sm-1">Anti-Reflective</li>
                     }
                     else
                     {
-                        <li class="col-sm-2">None</li>
+                        <li class="col-sm-1">None</li>
                     }
                     @if (historyRecord.Transitions)
                     {

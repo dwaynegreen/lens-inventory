@@ -50,7 +50,6 @@ namespace SeeMoreInventory.Models
                 Cylinder = lens[0].Cylinder,
                 AntiReflectiveCoating = lens[0].AntiReflectiveCoating,
                 Transitions = lens[0].Transitions,
-                Axis = lens[0].Axis,
                 Material = lens[0].Material,
                 Quantity = quantity,
                 RemainingCount = lens[0].RemainingCount,
