@@ -144,7 +144,6 @@ namespace SeeMoreInventory.Pages
 
         public IActionResult OnPostAllInventory()
         {
-
             string filename = DateTime.Now.ToString("MMddyyyyhhmm") + ".csv";
             string filepath = @"wwwroot\csv\" + filename;
             using (StreamWriter streamWriter = new StreamWriter(filepath))

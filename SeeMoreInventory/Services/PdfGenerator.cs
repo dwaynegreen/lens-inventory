@@ -68,7 +68,7 @@ namespace SeeMoreInventory.Services
 
         public static string GenerateReport(Box[] boxes)
         {
-            string fileName = @"wwwroot\csv\" + DateTime.Now.ToString("MMddyyyyhhmm") + ".pdf";
+            string fileName = @"wwwroot\pdf\" + DateTime.Now.ToString("MMddyyyyhhmm") + ".pdf";
             var report = CreateReport(boxes, fileName);
             return fileName;
         }

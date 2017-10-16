@@ -16,7 +16,7 @@
 function clearSticker(id) {
     var sheetValue = id.substring(3, 4);
     if (id === 'cbx' + sheetValue) {
-        ($('#cbxSheet' + sheetValue).text(''));
+        ($('#cbxSheet' + sheetValue).val(''));
     }
 }
 
