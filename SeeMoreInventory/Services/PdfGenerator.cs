@@ -20,50 +20,50 @@ namespace SeeMoreInventory.Services
             new BoxDisplayInfo(
                 new BoundingLocation() { X = 45, Y = 760}, new SphereColorLocation() { X = 70, Y = 735}, 
                 new MaterialLocation() { X = 180, Y = 730}, new AntiReflectiveLocation() { X = 70, Y = 730}, 
-                new TransitionsLocation() {X = 70, Y = 690 }, new SphereLocation() { X = 180, Y = 700}, 
-                new ProductLabelLocation() { X = 170, Y = 610}, new BarcodeLocation() { X = 125, Y = 610}),
+                new TransitionsLocation() {X = 70, Y = 690 }, new SphereLocation() { X = 175, Y = 675}, 
+                new ProductLabelLocation() { X = 170, Y = 610}, new BarcodeLocation() { X = 125, Y = 615}),
             //Box 2
             new BoxDisplayInfo(
                 new BoundingLocation() { X = 325, Y = 760 }, new SphereColorLocation() { X = 350, Y = 735}, 
                 new MaterialLocation() { X = 460, Y = 730}, new AntiReflectiveLocation() { X = 350, Y = 730},
-                new TransitionsLocation() {X = 350, Y = 690 }, new SphereLocation() { X = 460, Y = 700}, 
-                new ProductLabelLocation() { X = 460, Y = 610},  new BarcodeLocation() { X = 415, Y = 610}),
+                new TransitionsLocation() {X = 350, Y = 690 }, new SphereLocation() { X = 455, Y = 675}, 
+                new ProductLabelLocation() { X = 460, Y = 610},  new BarcodeLocation() { X = 415, Y = 615}),
             //Box 3
             new BoxDisplayInfo(
                 new BoundingLocation() { X = 45, Y = 570 }, new SphereColorLocation() { X = 70, Y = 545},
                 new MaterialLocation() { X = 180, Y = 540}, new AntiReflectiveLocation() { X = 70, Y = 540},
-                new TransitionsLocation() {X = 70, Y = 500 }, new SphereLocation() { X = 180, Y = 510}, 
-                new ProductLabelLocation() { X = 170, Y = 420}, new BarcodeLocation() { X = 125, Y = 420}),
+                new TransitionsLocation() {X = 70, Y = 500 }, new SphereLocation() { X = 175, Y = 485}, 
+                new ProductLabelLocation() { X = 170, Y = 420}, new BarcodeLocation() { X = 125, Y = 425}),
             //Box 4
             new BoxDisplayInfo(
                 new BoundingLocation() { X = 325, Y = 570 }, new SphereColorLocation() { X = 350, Y = 545}, 
                 new MaterialLocation() { X = 460, Y = 540 }, new AntiReflectiveLocation() { X = 350, Y = 540},
-                new TransitionsLocation() {X = 350, Y = 500 }, new SphereLocation() { X = 460, Y = 510}, 
-                new ProductLabelLocation() { X = 460, Y = 420}, new BarcodeLocation() { X = 415, Y = 420}),
+                new TransitionsLocation() {X = 350, Y = 500 }, new SphereLocation() { X = 455, Y = 485}, 
+                new ProductLabelLocation() { X = 460, Y = 420}, new BarcodeLocation() { X = 415, Y = 425}),
             //Box 5
             new BoxDisplayInfo(
                 new BoundingLocation() { X = 45, Y = 380 }, new SphereColorLocation() { X = 70, Y = 355}, 
                 new MaterialLocation() { X = 180, Y = 350 }, new AntiReflectiveLocation() { X = 70, Y = 350},
-                new TransitionsLocation() {X = 70, Y = 305 }, new SphereLocation() { X = 180, Y = 320}, 
-                new ProductLabelLocation() { X = 170, Y = 230},  new BarcodeLocation() { X = 125, Y = 230}),
+                new TransitionsLocation() {X = 70, Y = 305 }, new SphereLocation() { X = 175, Y = 295}, 
+                new ProductLabelLocation() { X = 170, Y = 230},  new BarcodeLocation() { X = 125, Y = 235}),
             //Box 6
             new BoxDisplayInfo(
                 new BoundingLocation() { X = 325, Y = 380 }, new SphereColorLocation() { X = 350, Y = 355}, 
                 new MaterialLocation() { X = 460, Y = 350 }, new AntiReflectiveLocation() { X = 350, Y = 350},
-                new TransitionsLocation() {X = 350, Y = 305 }, new SphereLocation() { X = 460, Y = 320}, 
-                new ProductLabelLocation() { X = 460, Y = 230}, new BarcodeLocation() { X = 415, Y = 230}),
+                new TransitionsLocation() {X = 350, Y = 305 }, new SphereLocation() { X = 455, Y = 295}, 
+                new ProductLabelLocation() { X = 460, Y = 230}, new BarcodeLocation() { X = 415, Y = 235}),
             //Box 7
             new BoxDisplayInfo(
                 new BoundingLocation() { X = 45, Y = 190 }, new SphereColorLocation() { X = 70, Y = 165}, 
                 new MaterialLocation() { X = 180, Y = 160 }, new AntiReflectiveLocation() { X = 70, Y = 160}, 
-                new TransitionsLocation() {X = 70, Y = 120 }, new SphereLocation() { X = 180, Y = 130}, 
-                new ProductLabelLocation() { X = 170, Y = 40}, new BarcodeLocation() { X = 125, Y = 40}),
+                new TransitionsLocation() {X = 70, Y = 120 }, new SphereLocation() { X = 175, Y = 105}, 
+                new ProductLabelLocation() { X = 170, Y = 40}, new BarcodeLocation() { X = 125, Y = 45}),
             //Box 8
             new BoxDisplayInfo(
                 new BoundingLocation() { X = 325, Y = 190 }, new SphereColorLocation() { X = 350, Y = 165}, 
                 new MaterialLocation() { X = 460, Y = 160 }, new AntiReflectiveLocation() { X = 350, Y = 160}, 
-                new TransitionsLocation() {X = 350, Y = 120 }, new SphereLocation() { X = 460, Y = 130}, 
-                new ProductLabelLocation() { X = 460, Y = 40}, new BarcodeLocation() { X = 415, Y = 40})
+                new TransitionsLocation() {X = 350, Y = 120 }, new SphereLocation() { X = 455, Y = 105}, 
+                new ProductLabelLocation() { X = 460, Y = 40}, new BarcodeLocation() { X = 415, Y = 45})
         };
 
         public static string GenerateReport(Box[] boxes)
@@ -136,7 +136,7 @@ namespace SeeMoreInventory.Services
 
                     //POWER SPHERE
                     canvas.BeginText();
-                    canvas.SetFontAndSize(bf_helvBold, 12);
+                    canvas.SetFontAndSize(bf_helvBold, 34);
                     if (boxInfo[i].LensInfo.Sphere > 0.00m)
                     {
                         canvas.ShowTextAligned(Element.ALIGN_CENTER, "+" + boxInfo[i].LensInfo.Sphere.ToString().ToUpper() + " / " + boxInfo[i].LensInfo.Cylinder.ToString().ToUpper(), boundingBoxLocations[i].SphereLocation.X, boundingBoxLocations[i].SphereLocation.Y, 0);
