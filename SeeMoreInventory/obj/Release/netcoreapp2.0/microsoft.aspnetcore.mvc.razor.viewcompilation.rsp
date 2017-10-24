@@ -2,6 +2,7 @@ C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory
 --output-path=obj\Release\netcoreapp2.0\
 --application-name=SeeMoreInventory
 --content-root=C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory
+--file=C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\Pages\About.cshtml
 --file=C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\Pages\AdminPages\Create.cshtml
 --file=C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\Pages\AdminPages\Delete.cshtml
 --file=C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\Pages\AdminPages\Index.cshtml
