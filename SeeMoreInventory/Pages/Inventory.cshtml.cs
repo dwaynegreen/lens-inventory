@@ -30,9 +30,17 @@ namespace SeeMoreInventory.Pages
             _env = env;
         }
 
-        public void OnGet()
+        public void OnGet(string filter)
         {
-            Lenses = _lensData.Lenses.Include(m => m.Material).ToList();
+            var lenses = from l in _lensData.Lenses
+                         select l;
+
+            if (!String.IsNullOrEmpty(filter))
+            {
+                lenses = lenses.Where(s => s.ProductLabel.Contains(filter));
+            }
+
+            Lenses = lenses.Include(m => m.Material).ToList();
         }
 
         public IActionResult OnPostPrintLabel()

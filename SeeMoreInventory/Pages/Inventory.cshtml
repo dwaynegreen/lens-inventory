@@ -12,6 +12,11 @@
                     <form method="post">
                         <input class="btn btn-primary" type="submit" asp-page-handler="allinventory" value="Generate CSV" />
                     </form>
+
+                    <form method="get">
+                        Filter: <input type="text" name="filter">
+                        <input class="btn btn-primary" type="submit" value="Filter Inventory" />
+                    </form>
                 </div>
             </div>
         </div>
