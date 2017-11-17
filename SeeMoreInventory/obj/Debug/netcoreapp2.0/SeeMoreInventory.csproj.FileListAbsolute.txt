@@ -8,3 +8,4 @@ C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\obj\Debug\netcoreap
 C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\obj\Debug\netcoreapp2.0\SeeMoreInventory.AssemblyInfo.cs
 C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\obj\Debug\netcoreapp2.0\SeeMoreInventory.dll
 C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\obj\Debug\netcoreapp2.0\SeeMoreInventory.pdb
+C:\Users\dgreen\Source\Repos\lens-inventory\SeeMoreInventory\obj\Debug\netcoreapp2.0\SeeMoreInventory.csprojResolveAssemblyReference.cache

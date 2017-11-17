@@ -31,14 +31,72 @@ namespace SeeMoreInventory.Pages
             _env = env;
         }
 
-        public async void OnGet(string filter)
+        public void OnGet(string filter, string sortOrder)
         {
+            ViewData["ProductLabelSort"] = string.IsNullOrEmpty(sortOrder) ? "productlabel_desc" : "";
+            ViewData["SphereSort"] = sortOrder == "sphere_asc" ? "sphere_desc" : "sphere_asc";
+            ViewData["CylinderSort"] = sortOrder == "cylinder_asc" ? "cylinder_desc" : "cylinder_asc";
+            ViewData["MaterialSort"] = sortOrder == "material_asc" ? "material_desc" : "material_asc";
+            ViewData["ARSort"] = sortOrder == "ar_desc" ? "ar_asc" : "ar_asc";
+            ViewData["TransitionsSort"] = sortOrder == "transitions_asc" ? "transitions_desc" : "transitions_asc";
+            ViewData["RemainingCountSort"] = sortOrder == "remaining_asc" ? "remaining_desc" : "remaining_asc";
+
             var lenses = from l in _lensData.Lenses
                          select l;
+
 
             if (!String.IsNullOrEmpty(filter))
             {
                 lenses = lenses.Where(s => s.ProductLabel.Contains(filter));
+            }
+
+            switch (sortOrder)
+            {
+                case "productlabel_desc":
+                    lenses = lenses.OrderByDescending(s => s.ProductLabel);
+                    break;
+                case "productlabel_asc":
+                    lenses = lenses.OrderBy(s => s.ProductLabel);
+                    break;
+                case "sphere_desc":
+                    lenses = lenses.OrderByDescending(s => s.Sphere);
+                    break;
+                case "sphere_asc":
+                    lenses = lenses.OrderBy(s => s.Sphere);
+                    break;
+                case "cylinder_desc":
+                    lenses = lenses.OrderByDescending(s => s.Cylinder);
+                    break;
+                case "cylinder_asc":
+                    lenses = lenses.OrderBy(s => s.Cylinder);
+                    break;
+                case "material_desc":
+                    lenses = lenses.OrderByDescending(s => s.Material.Name);
+                    break;
+                case "material_asc":
+                    lenses = lenses.OrderBy(s => s.Material.Name);
+                    break;
+                case "ar_desc":
+                    lenses = lenses.OrderByDescending(s => s.AntiReflectiveCoating);
+                    break;
+                case "ar_asc":
+                    lenses = lenses.OrderBy(s => s.AntiReflectiveCoating);
+                    break;
+                case "transitions_desc":
+                    lenses = lenses.OrderByDescending(s => s.Transitions);
+                    break;
+                case "transitions_asc":
+                    lenses = lenses.OrderBy(s => s.Transitions);
+                    break;
+                case "remaining_desc":
+                    lenses = lenses.OrderByDescending(s => s.RemainingCount);
+                    break;
+                case "remaining_asc":
+                    lenses = lenses.OrderBy(s => s.RemainingCount);
+                    break;
+                default:
+                    lenses = lenses.OrderBy(s => s.ProductLabel);
+                    break;
             }
 
             Lenses = lenses.Include(m => m.Material).ToList();
