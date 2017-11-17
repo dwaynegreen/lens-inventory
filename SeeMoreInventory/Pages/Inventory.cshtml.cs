@@ -10,6 +10,7 @@ using SeeMoreInventory.Services;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using System;
+using System.Threading.Tasks;
 
 namespace SeeMoreInventory.Pages
 {
@@ -20,7 +21,7 @@ namespace SeeMoreInventory.Pages
         private IHostingEnvironment _env;
 
         [BindProperty]
-        public IList<Lens> Lenses { get; set; }
+        public List<Lens> Lenses { get; set; }
 
         [BindProperty]
         public LabelViewModel LabelViewModel { get; set; }
@@ -30,7 +31,7 @@ namespace SeeMoreInventory.Pages
             _env = env;
         }
 
-        public void OnGet(string filter)
+        public async void OnGet(string filter)
         {
             var lenses = from l in _lensData.Lenses
                          select l;
