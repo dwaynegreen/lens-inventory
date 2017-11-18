@@ -26,7 +26,7 @@
                     <tr class="inventory">
                         <th class="inventory"><a asp-route-sortOrder="@ViewData["ProductLabelSort"]">Product Label</a></th>
                         <th class="inventory"><a asp-route-sortOrder="@ViewData["SphereSort"]">Sphere</a></th>
-                        <th class="inventory"><a asp-route-sortOrder="@ViewData["CylinderSort"]">Cylinder</a></th>
+                        <th class="inventory"><a asp-page-handler="Sort" asp-route-sortOrder="@ViewData["CylinderSort"]">Cylinder</a></th>
                         <th class="inventory"><a asp-route-sortOrder="@ViewData["MaterialSort"]">Material</a></th>
                         <th class="inventory"><a asp-route-sortOrder="@ViewData["ARSort"]">AR Coating</a></th>
                         <th class="inventory"><a asp-route-sortOrder="@ViewData["TransitionsSort"]">Transitions</a></th>

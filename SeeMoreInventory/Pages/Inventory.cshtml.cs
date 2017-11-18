@@ -47,7 +47,15 @@ namespace SeeMoreInventory.Pages
 
             if (!String.IsNullOrEmpty(filter))
             {
-                lenses = lenses.Where(s => s.ProductLabel.Contains(filter));
+                if (filter.Contains("."))
+                {
+                    lenses = lenses.Where(s => s.Sphere == decimal.Parse(filter));
+                    sortOrder = "cylinder_desc";
+                }
+                else
+                {
+                    lenses = lenses.Where(s => s.ProductLabel.Contains(filter));
+                }
             }
 
             switch (sortOrder)
@@ -101,6 +109,8 @@ namespace SeeMoreInventory.Pages
 
             Lenses = lenses.Include(m => m.Material).ToList();
         }
+
+        
 
         public IActionResult OnPostPrintLabel()
         {
@@ -216,7 +226,7 @@ namespace SeeMoreInventory.Pages
             using (StreamWriter streamWriter = new StreamWriter(filepath))
             {
                 CsvWriter writer = new CsvWriter(streamWriter);
-                writer.WriteRecords(_lensData.Lenses.Include(m=>m.Material).ToList());
+                writer.WriteRecords(_lensData.Lenses.Include(m => m.Material).ToList());
             }
             PhysicalFileResult result = new PhysicalFileResult(Path.Combine(_env.ContentRootPath, filepath), "text/csv");
             return result;
