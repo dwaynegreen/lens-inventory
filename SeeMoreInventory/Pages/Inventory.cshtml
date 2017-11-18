@@ -36,7 +36,7 @@
                         @foreach (var lens in Model.Lenses)
                         {
                             var className = "";
-                            if (lens.LowInventoryWarning >= lens.RemainingCount)
+                            if (lens.LowInventoryWarning >= lens.RemainingCount && lens.LowInventoryWarning != 0)
                             {
                                 className += "lowInventory";
                             }
