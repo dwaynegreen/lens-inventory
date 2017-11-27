@@ -114,7 +114,7 @@ hr {
 .inventory {
     border-style: solid;
     border-width: thin;
-    font-size: medium;
+    font-size: larger;
 }
 
 th {
@@ -126,6 +126,7 @@ td {
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
+    font-size: 20px;
 }
 
 label {

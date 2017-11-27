@@ -13,9 +13,12 @@
                         <input class="btn btn-primary" type="submit" asp-page-handler="allinventory" value="Generate CSV" />
                     </form>
                     <br />
-                    <form method="get">
-                        Filter: <input type="text" name="filter">
-                        <input class="btn btn-primary" type="submit" value="Filter Inventory" />
+                    <form method="post">
+                        <label>Sphere</label> <input type="text" name="SphereFilter" asp-for="SphereFilter" />
+                        <label>Cylinder</label><input type="text" name="CylinderFilter" asp-for="CylinderFilter" />
+                        <label>AntiReflective </label><input type="checkbox" id="arcbx" asp-for="ARChecked" />
+                        <label>Transitions </label><input type="checkbox" id="trcbx" asp-for="TransitionsChecked" />
+                        <input asp-page-handler="SetFilters" class="btn btn-primary" type="submit" value="Filter Inventory" />
                     </form>
                 </div>
             </div>
@@ -26,7 +29,7 @@
                     <tr class="inventory">
                         <th class="inventory"><a asp-route-sortOrder="@ViewData["ProductLabelSort"]">Product Label</a></th>
                         <th class="inventory"><a asp-route-sortOrder="@ViewData["SphereSort"]">Sphere</a></th>
-                        <th class="inventory"><a asp-page-handler="Sort" asp-route-sortOrder="@ViewData["CylinderSort"]">Cylinder</a></th>
+                        <th class="inventory"><a asp-route-sortOrder="@ViewData["CylinderSort"]">Cylinder</a></th>
                         <th class="inventory"><a asp-route-sortOrder="@ViewData["MaterialSort"]">Material</a></th>
                         <th class="inventory"><a asp-route-sortOrder="@ViewData["ARSort"]">AR Coating</a></th>
                         <th class="inventory"><a asp-route-sortOrder="@ViewData["TransitionsSort"]">Transitions</a></th>
