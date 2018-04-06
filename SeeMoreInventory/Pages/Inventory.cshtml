@@ -14,18 +14,18 @@
                     </form>
                     <br />
                     <form method="post">
-                        <label>Sphere</label> <input type="text" name="SphereFilter" asp-for="SphereFilter" />
-                        <label>Cylinder</label><input type="text" name="CylinderFilter" asp-for="CylinderFilter" />
-                        <label>AntiReflective </label><input type="checkbox" id="arcbx" asp-for="ARChecked" />
-                        <label>Transitions </label><input type="checkbox" id="trcbx" asp-for="TransitionsChecked" />
-                        <input asp-page-handler="SetFilters" class="btn btn-primary" type="submit" value="Filter Inventory" />
+                        <label>Sphere</label> <input type="text" name="SphereFilter" id="sphereFilter"/>
+                        <label>Cylinder</label><input type="text" name="CylinderFilter" id="cylinderFilter"/>
+                        <label>AntiReflective </label><input type="checkbox" id="arcbx"/>
+                        <label>Transitions </label><input type="checkbox" id="trcbx"/>
+                        <input class="btn btn-primary" type="submit" value="Filter Inventory" id="filterByDetails"/>
                     </form>
                 </div>
             </div>
         </div>
         <div class="row inventoryForm">
             <div class="col-sm-8">
-                <table>
+                <table id="inventoryTable">
                     <tr class="inventory">
                         <th class="inventory"><a asp-route-sortOrder="@ViewData["ProductLabelSort"]">Product Label</a></th>
                         <th class="inventory"><a asp-route-sortOrder="@ViewData["SphereSort"]">Sphere</a></th>
@@ -38,14 +38,14 @@
                     <tbody>
                         @foreach (var lens in Model.Lenses)
                         {
-                            var className = "";
+                            var className = "inventoryRow";
                             if (lens.LowInventoryWarning >= lens.RemainingCount && lens.LowInventoryWarning != 0)
                             {
-                                className += "lowInventory";
+                                className += " lowInventory";
                             }
                             else
                             {
-                                className += "regularQuantity";
+                                className += " regularQuantity";
                             }
                             <tr class=@className>
                                 <td class="inventory"><a asp-page="./Edit" asp-route-id="@lens.ProductLabel">@lens.ProductLabel</a></td>

@@ -29,3 +29,42 @@ window.onload = function () {
 $(function () {
     $(".scroll").jScroll();
 });
+
+$('#filterByDetails').on('click', function () {
+    event.preventDefault();
+    FilterTable();
+});
+
+function FilterTable() {
+    var table = $('.inventoryTable');
+    var tr = $('.inventoryRow');
+
+    var SphereFilter = $('#sphereFilter').val();
+    var CylinderFilter = $('#cylinderFilter').val();
+    var ARFilter = $('#arcbx').is(":checked");
+    var TransitionFilter = $('#trcbx').is(":checked");
+
+    $.each(tr, function (i, val) {
+        var td = tr[i].getElementsByTagName("td")[0]
+
+        if (td) {
+            tr[i].style.display = "";
+
+            if (ARFilter && tr[i].getElementsByTagName("td")[4].innerText === "None") {
+                tr[i].style.display = "none";
+            }
+
+            if (TransitionFilter && tr[i].getElementsByTagName("td")[5].innerText === "No") {
+                tr[i].style.display = "none";
+            }
+
+            if (SphereFilter != "" && tr[i].getElementsByTagName("td")[1].innerText != SphereFilter) {
+                tr[i].style.display = "none";
+            }
+            
+            if (CylinderFilter != "" && tr[i].getElementsByTagName("td")[2].innerText != CylinderFilter) {
+                tr[i].style.display = "none";
+            }
+        }
+    });
+}
