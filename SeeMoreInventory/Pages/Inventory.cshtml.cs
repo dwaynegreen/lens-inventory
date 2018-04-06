@@ -10,15 +10,13 @@ using SeeMoreInventory.Services;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using System;
-using System.Threading.Tasks;
 
 namespace SeeMoreInventory.Pages
 {
     public class InventoryModel : PageModel
     {
         private readonly LensContext _lensData;
-        private CsvWriter csv;
-        private IHostingEnvironment _env;
+        private readonly IHostingEnvironment _env;
 
         [BindProperty]
         public List<Lens> Lenses { get; set; }
@@ -26,116 +24,18 @@ namespace SeeMoreInventory.Pages
         [BindProperty]
         public LabelViewModel LabelViewModel { get; set; }
 
-        [BindProperty]
-        public string SphereFilter { get; set; }
-
-        [BindProperty]
-        public string CylinderFilter { get; set; }
-
-        [BindProperty]
-        public bool ARChecked { get; set; }
-
-        [BindProperty]
-        public bool TransitionsChecked { get; set; }
-
-
         public InventoryModel(LensContext context, IHostingEnvironment env)
         {
             _lensData = context;
             _env = env;
         }
 
-        public void OnGet(string sortOrder)
+        public void OnGet()
         {
             var lenses = from l in _lensData.Lenses
                          select l;
 
-            if (SphereFilter == null && CylinderFilter == null && !ARChecked && !TransitionsChecked)
-            {
-                Lenses = lenses.Include(m => m.Material).ToList();
-            }
-            else
-            {
-                if (SphereFilter != null)
-                {
-                    lenses = lenses.Where(s => s.Sphere == decimal.Parse(SphereFilter.ToString()));
-                }
-                if (CylinderFilter != null)
-                {
-                    lenses = lenses.Where(c => c.Cylinder == decimal.Parse(CylinderFilter.ToString()));
-                }
-                if (ARChecked)
-                {
-                    lenses = lenses.Where(a => a.AntiReflectiveCoating == bool.Parse(ARChecked.ToString()));
-                }
-                if (TransitionsChecked)
-                {
-                    lenses = lenses.Where(t => t.Transitions == bool.Parse(TransitionsChecked.ToString()));
-                }
-                Lenses = lenses.Include(m => m.Material).ToList();
-            }
-
-            ViewData["ProductLabelSort"] = string.IsNullOrEmpty(sortOrder) ? "productlabel_desc" : "";
-            ViewData["SphereSort"] = sortOrder == "sphere_asc" ? "sphere_desc" : "sphere_asc";
-            ViewData["CylinderSort"] = sortOrder == "cylinder_asc" ? "cylinder_desc" : "cylinder_asc";
-            ViewData["MaterialSort"] = sortOrder == "material_asc" ? "material_desc" : "material_asc";
-            ViewData["ARSort"] = sortOrder == "ar_desc" ? "ar_asc" : "ar_asc";
-            ViewData["TransitionsSort"] = sortOrder == "transitions_asc" ? "transitions_desc" : "transitions_asc";
-            ViewData["RemainingCountSort"] = sortOrder == "remaining_asc" ? "remaining_desc" : "remaining_asc";
-
-            switch (sortOrder)
-            {
-                case "productlabel_desc":
-                    Lenses = Lenses.OrderByDescending(s => s.ProductLabel).ToList();
-                    break;
-                case "productlabel_asc":
-                    Lenses = Lenses.OrderBy(s => s.ProductLabel).ToList();
-                    break;
-                case "sphere_desc":
-                    Lenses = Lenses.OrderByDescending(s => s.Sphere).ToList();
-                    break;
-                case "sphere_asc":
-                    Lenses = Lenses.OrderBy(s => s.Sphere).ToList();
-                    break;
-                case "cylinder_desc":
-                    Lenses = Lenses.OrderByDescending(s => s.Cylinder).ToList();
-                    break;
-                case "cylinder_asc":
-                    Lenses = Lenses.OrderBy(s => s.Cylinder).ToList();
-                    break;
-                case "material_desc":
-                    Lenses = Lenses.OrderByDescending(s => s.Material.Name).ToList();
-                    break;
-                case "material_asc":
-                    Lenses = Lenses.OrderBy(s => s.Material.Name).ToList();
-                    break;
-                case "ar_desc":
-                    Lenses = Lenses.OrderByDescending(s => s.AntiReflectiveCoating).ToList();
-                    break;
-                case "ar_asc":
-                    Lenses = Lenses.OrderBy(s => s.AntiReflectiveCoating).ToList();
-                    break;
-                case "transitions_desc":
-                    Lenses = Lenses.OrderByDescending(s => s.Transitions).ToList();
-                    break;
-                case "transitions_asc":
-                    Lenses = Lenses.OrderBy(s => s.Transitions).ToList();
-                    break;
-                case "remaining_desc":
-                    Lenses = Lenses.OrderByDescending(s => s.RemainingCount).ToList();
-                    break;
-                case "remaining_asc":
-                    Lenses = Lenses.OrderBy(s => s.RemainingCount).ToList();
-                    break;
-                default:
-                    Lenses = Lenses.OrderBy(s => s.ProductLabel).ToList();
-                    break;
-            }
-        }
-
-        public void OnPostSetFilters()
-        {
-            OnGet(null);
+            Lenses = lenses.Include(m => m.Material).ToList();
         }
 
         public IActionResult OnPostPrintLabel()
@@ -151,7 +51,6 @@ namespace SeeMoreInventory.Pages
             boxesSelected[5] = !LabelViewModel.Box6IsSelected;
             boxesSelected[6] = !LabelViewModel.Box7IsSelected;
             boxesSelected[7] = !LabelViewModel.Box8IsSelected;
-
 
             string[] productLabels = new string[8];
 
