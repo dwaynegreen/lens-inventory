@@ -1,6 +1,6 @@
 ﻿// Write your Javascript code.
 window.onload = function () {
-    document.getElementById("updateInventory_ProductLabel").focus();
+    document.getElementById("filterByDetails").focus();
 };
 
 (function ($) {
@@ -10,20 +10,22 @@ window.onload = function () {
             var a = $(this);
             var b = $(window);
             var c = new location(a);
-            b.scroll(function () {
-                a.stop().animate(c.getMargin(b), f.speed)
-            })
+            b.scroll(function() {
+                a.stop().animate(c.getMargin(b), f.speed);
+            });
         }); function location(d) {
             this.min = d.offset().top;
-            this.originalMargin = parseInt(d.css("margin-top"), 10) || 0; this.getMargin = function (a) {
+            this.originalMargin = parseInt(d.css("margin-top"), 10) || 0;
+            this.getMargin = function(a) {
                 var b = d.parent().height() - d.outerHeight();
                 var c = this.originalMargin;
                 if (a.scrollTop() >= this.min) c = c + f.top + a.scrollTop() - this.min;
                 if (c > b) c = b;
-                return ({ "marginTop": c + 'px' })
-            }
+                return ({ "marginTop": c + 'px' });
+            };
         }
-    }; $.fn.jScroll.defaults = { speed: "slow", top: 10 }
+    };
+    $.fn.jScroll.defaults = { speed: "slow", top: 10 };
 })(jQuery);
 
 $(function () {
@@ -45,7 +47,7 @@ function FilterTable() {
     var TransitionFilter = $('#trcbx').is(":checked");
 
     $.each(tr, function (i, val) {
-        var td = tr[i].getElementsByTagName("td")[0]
+        var td = tr[i].getElementsByTagName("td")[0];
 
         if (td) {
             tr[i].style.display = "";
