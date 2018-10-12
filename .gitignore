@@ -3,3 +3,7 @@
 ################################################################################
 
 /SeeMoreInventory/wwwroot/csv
+/SeeMoreInventory/obj/Release/netcoreapp2.0
+/SeeMoreInventory/obj/Debug/netcoreapp2.0
+/.vs/SeeMoreInventory/DesignTimeBuild
+/.vs/SeeMoreInventory/v15
