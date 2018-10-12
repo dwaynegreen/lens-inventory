@@ -152,7 +152,7 @@ namespace SeeMoreInventory.Services
                     barcode.Size = 10;
 
                     Image code128Image = barcode.CreateImageWithBarcode(canvas, BaseColor.Black, BaseColor.Black);
-                    code128Image.ScalePercent(120);
+                    code128Image.ScalePercent(110);
                     code128Image.Alignment = Element.ALIGN_CENTER;
                     code128Image.SetAbsolutePosition(((box_bounding_width - code128Image.ScaledWidth) / 2) + boundingBoxLocations[i].BoundingLocation.X, boundingBoxLocations[i].BarcodeLocation.Y);
                     pdfdoc.Add(code128Image);
